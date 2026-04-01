@@ -5,7 +5,8 @@
         "tech": "TECNOLOGIA",
         "about": "SOBRE",
         "contact": "CONTATO",
-        "start_project": "INICIAR PROJETO"
+        "start_project": "TENHO UMA IDEIA",
+        "portal": "PORTAL"
     },
     "Hero": {
         "badge": "Digital Performance Foundry",
@@ -82,57 +83,57 @@
             "cta": "EXPLORAR SISTEMA"
         },
         "case2": {
-            "label": "ESTUDO DE CASO 02: NEXUS GLOBAL",
-            "title": "NEXUS GLOBAL",
-            "description": "Infraestrutura de SEO técnico e framework de anúncios de alta intenção que garantiram resultados expressivos para um gigante logístico.",
-            "stat1_label": "ROAS",
-            "stat2_label": "USUÁRIOS MENSAIS",
+            "label": "ESTUDO DE CASO 02: MULTINTERCÂMBIO",
+            "title": "MULTINTERCÂMBIO WEBSITE",
+            "description": "Portal completo para intercâmbios internacionais com motor de busca inteligente e integração de leads otimizada.",
+            "stat1_label": "LEADS GERADOS",
+            "stat2_label": "VELOCIDADE",
             "cta": "EXPLORAR SISTEMA"
         },
         "case3": {
-            "label": "ESTUDO DE CASO 03",
-            "title": "QUANTUM CORE",
-            "description": "Infraestrutura distribuída para clusters financeiros de alta carga e processamento em tempo real.",
-            "stat1_label": "UPTIME",
-            "stat2_label": "LATÊNCIA",
+            "label": "ESTUDO DE CASO 03: MULTINTERCÂMBIO",
+            "title": "MULTINTERCÂMBIO CMS",
+            "description": "Sistema de gestão de conteúdo sob medida para administração de cursos, escolas e matrículas globais.",
+            "stat1_label": "EFICIÊNCIA",
+            "stat2_label": "GESTÃO",
             "cta": "EXPLORAR SISTEMA"
         },
         "case4": {
-            "label": "ESTUDO DE CASO 04",
-            "title": "NEURAL ENGINE",
-            "description": "Integração proprietária de IA para análise preditiva de mercado e automação de fluxos de decisão.",
-            "stat1_label": "VELOCIDADE",
-            "stat2_label": "PROCESSAMENTO",
+            "label": "ESTUDO DE CASO 04: CORREZERO13",
+            "title": "CORREZERO13 - LANDING PAGE",
+            "description": "Página de alta conversão focada em lançamentos de infoprodutos e assessoria esportiva.",
+            "stat1_label": "CONVERSÃO",
+            "stat2_label": "CTR",
             "cta": "EXPLORAR SISTEMA"
         },
         "case5": {
-            "label": "ESTUDO DE CASO 05",
-            "title": "LUX ARCANA",
-            "description": "Interface brutalista premium para curadoria de alta moda européia com e-commerce integrado.",
-            "stat1_label": "ENGAJAMENTO",
-            "stat2_label": "AOV",
+            "label": "ESTUDO DE CASO 05: CORREZERO13",
+            "title": "CORREZERO13 - PLATAFORMA",
+            "description": "Dashboard completo de assessoria para corredores com acompanhamento de treinos e métricas de performance.",
+            "stat1_label": "USUÁRIOS ATIVOS",
+            "stat2_label": "ENGAJAMENTO",
             "cta": "EXPLORAR SISTEMA"
         },
         "case6": {
-            "label": "ESTUDO DE CASO 06",
-            "title": "KINETIC BRAND",
-            "description": "Identidade visual focada em movimento para um conglomerado global de tecnologia e inovação.",
-            "stat1_label": "ALCANCE",
-            "stat2_label": "RECONHECIMENTO",
+            "label": "ESTUDO DE CASO 06: CAMPEDELLI",
+            "title": "CAMPEDELLI - ENGENHARIA DE RISCO",
+            "description": "Plataforma técnica para cálculos de risco e engenharia consultiva de alta precisão.",
+            "stat1_label": "PRECISÃO",
+            "stat2_label": "PROCESSAMENTO",
             "cta": "EXPLORAR SISTEMA"
         },
         "case7": {
-            "label": "ESTUDO DE CASO 07",
-            "title": "CRYPTO CANVAS",
-            "description": "Dashboard hiper-minimalista para gestão especializada de ativos e criptografados.",
-            "stat1_label": "SYNC",
-            "stat2_label": "FRICTION",
+            "label": "ESTUDO DE CASO 07: GOSAFE",
+            "title": "GOSAFE VIAGENS",
+            "description": "Experiência de e-commerce focada em vounchers e passes de viagem com UX minimalista.",
+            "stat1_label": "VENDAS",
+            "stat2_label": "FRICTIONLESS",
             "cta": "EXPLORAR SISTEMA"
         },
         "case8": {
-            "label": "ESTUDO DE CASO 08",
-            "title": "OASIS INTERFACE",
-            "description": "Framework de design biofílico para aplicativos especializados em ambientes de trabalho disruptivos.",
+            "label": "ESTUDO DE CASO 08: LALABABY",
+            "title": "LALABABY ROUPAS INFANTIS",
+            "description": "Design de e-commerce encantador com foco em retenção e experiência de compra mobile-first para moda infantil.",
             "stat1_label": "RETENÇÃO",
             "stat2_label": "AVALIAÇÃO",
             "cta": "EXPLORAR SISTEMA"

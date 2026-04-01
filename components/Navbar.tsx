@@ -26,6 +26,7 @@ export default function Navbar({ t, lang }: NavbarProps) {
     const navLinks = [
         { name: t.Navigation.services, href: "#services" },
         { name: t.Navigation.work, href: "#work" },
+        { name: t.Navigation.tech, href: "#tech" },
         { name: t.Navigation.about, href: "#about" },
         { name: t.Navigation.contact, href: "#contact" },
     ];
@@ -72,9 +73,9 @@ export default function Navbar({ t, lang }: NavbarProps) {
             >
                 <div className="max-w-7xl mx-auto px-8 flex justify-between items-center">
                     {/* Logo */}
-                    <Link href="/" className="text-xl md:text-2xl font-black tracking-tighter text-white group">
+                    <a href="#" className="text-xl md:text-2xl font-black tracking-tighter text-white group">
                         STUDIO<span className="text-primary group-hover:text-white transition-colors">CACTUS</span>
-                    </Link>
+                    </a>
 
                     {/* Desktop Nav */}
                     <nav className="hidden lg:flex items-center gap-12">
@@ -91,12 +92,18 @@ export default function Navbar({ t, lang }: NavbarProps) {
 
                     {/* Right Side Tools */}
                     <div className="hidden lg:flex items-center gap-8">
+                        <a
+                            href="#"
+                            className="font-label text-[10px] font-bold tracking-[0.3em] text-neutral-400 hover:text-white uppercase transition-colors"
+                        >
+                            {t.Navigation.portal}
+                        </a>
                         <DictionarySwitcher currentLocale={lang} />
                         <a
                             href="#contact"
-                            className="bg-primary text-black px-6 py-3 font-black text-[10px] tracking-widest uppercase hover:bg-white transition-all duration-300"
+                            className="bg-primary text-black px-6 py-4 font-black text-[10px] tracking-widest uppercase hover:bg-white transition-all duration-300"
                         >
-                            {t.CTA.button_main}
+                            {t.Navigation.start_project}
                         </a>
                     </div>
 
@@ -151,25 +158,38 @@ export default function Navbar({ t, lang }: NavbarProps) {
                             ))}
                         </nav>
 
-                        <div className="mt-auto space-y-12 relative z-10">
+                        <div className="mt-auto space-y-4 relative z-10">
                             {/* Mobile CTA */}
                             <motion.div
                                 variants={linkVariants}
                                 custom={navLinks.length}
                             >
                                 <a
+                                    href="#"
+                                    onClick={() => setIsOpen(false)}
+                                    className="block w-full border border-white/20 text-white py-6 text-center font-black text-xs tracking-[0.4em] uppercase hover:bg-white/5"
+                                >
+                                    {t.Navigation.portal}
+                                </a>
+                            </motion.div>
+
+                            <motion.div
+                                variants={linkVariants}
+                                custom={navLinks.length + 1}
+                            >
+                                <a
                                     href="#contact"
                                     onClick={() => setIsOpen(false)}
                                     className="block w-full bg-primary text-black py-8 text-center font-black text-xs tracking-[0.4em] uppercase"
                                 >
-                                    {t.CTA.button_main}
+                                    {t.Navigation.start_project}
                                 </a>
                             </motion.div>
 
                             {/* Mobile Language & Meta */}
                             <motion.div
                                 variants={linkVariants}
-                                custom={navLinks.length + 1}
+                                custom={navLinks.length + 2}
                                 className="flex justify-between items-center pt-8 border-t border-white/5"
                             >
                                 <DictionarySwitcher currentLocale={lang} />

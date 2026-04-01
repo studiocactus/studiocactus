@@ -5,7 +5,8 @@
         "tech": "TECH",
         "about": "ABOUT",
         "contact": "CONTACT",
-        "start_project": "START PROJECT"
+        "start_project": "I HAVE AN IDEA",
+        "portal": "PORTAL"
     },
     "Hero": {
         "badge": "Digital Performance Foundry",
@@ -82,57 +83,57 @@
             "cta": "EXPLORE SYSTEM"
         },
         "case2": {
-            "label": "CASE STUDY 02: NEXUS GLOBAL",
-            "title": "NEXUS GLOBAL",
-            "description": "Technical SEO infrastructure and high-intent advertising framework that secured significant results for a logistics giant.",
-            "stat1_label": "ROAS",
-            "stat2_label": "MONTHLY USERS",
+            "label": "CASE STUDY 02: MULTINTERCAMBIO",
+            "title": "MULTINTERCAMBIO WEBSITE",
+            "description": "Comprehensive portal for international exchange programs with an intelligent search engine and optimized lead integration.",
+            "stat1_label": "GENERATED LEADS",
+            "stat2_label": "SPEED",
             "cta": "EXPLORE SYSTEM"
         },
         "case3": {
-            "label": "CASE STUDY 03",
-            "title": "QUANTUM CORE",
-            "description": "Distributed infrastructure for high-load financial clusters and real-time processing.",
-            "stat1_label": "UPTIME",
-            "stat2_label": "LATENCY",
+            "label": "CASE STUDY 03: MULTINTERCAMBIO",
+            "title": "MULTINTERCAMBIO CMS",
+            "description": "Custom content management system for administering global courses, schools, and enrollments.",
+            "stat1_label": "EFFICIENCY",
+            "stat2_label": "MANAGEMENT",
             "cta": "EXPLORE SYSTEM"
         },
         "case4": {
-            "label": "CASE STUDY 04",
-            "title": "NEURAL ENGINE",
-            "description": "Proprietary AI integration for predictive market analysis and decision flow automation.",
-            "stat1_label": "SPEED",
-            "stat2_label": "DATA",
+            "label": "CASE STUDY 04: CORREZERO13",
+            "title": "CORREZERO13 - LANDING PAGE",
+            "description": "High-conversion page focused on digital product launches and sports consultancy.",
+            "stat1_label": "CONVERSION",
+            "stat2_label": "CTR",
             "cta": "EXPLORE SYSTEM"
         },
         "case5": {
-            "label": "CASE STUDY 05",
-            "title": "LUX ARCANA",
-            "description": "Premium brutalist UI for European high-fashion curation with integrated e-commerce.",
-            "stat1_label": "ENGAGEMENT",
-            "stat2_label": "AOV",
+            "label": "CASE STUDY 05: CORREZERO13",
+            "title": "CORREZERO13 - PLATFORM",
+            "description": "Complete advisory dashboard for runners with workout tracking and performance metrics.",
+            "stat1_label": "ACTIVE USERS",
+            "stat2_label": "ENGAGEMENT",
             "cta": "EXPLORE SYSTEM"
         },
         "case6": {
-            "label": "CASE STUDY 06",
-            "title": "KINETIC BRAND",
-            "description": "Motion-first identity for a global tech conglomerate focusing on innovation.",
-            "stat1_label": "REACH",
-            "stat2_label": "RECOGNITION",
+            "label": "CASE STUDY 06: CAMPEDELLI",
+            "title": "CAMPEDELLI - RISK ENGINEERING",
+            "description": "Technical platform for risk calculations and high-precision consulting engineering.",
+            "stat1_label": "PRECISION",
+            "stat2_label": "PROCESSING",
             "cta": "EXPLORE SYSTEM"
         },
         "case7": {
-            "label": "CASE STUDY 07",
-            "title": "CRYPTO CANVAS",
-            "description": "Hyper-minimalist dashboard for specialized asset and crypto management.",
-            "stat1_label": "SYNC",
-            "stat2_label": "FRICTION",
+            "label": "CASE STUDY 07: GOSAFE",
+            "title": "GOSAFE TRAVEL",
+            "description": "E-commerce experience focused on vouchers and travel passes with minimalist UX.",
+            "stat1_label": "SALES",
+            "stat2_label": "FRICTIONLESS",
             "cta": "EXPLORE SYSTEM"
         },
         "case8": {
-            "label": "CASE STUDY 08",
-            "title": "OASIS INTERFACE",
-            "description": "Biophilic design framework for specialized workplace applications in disruptive environments.",
+            "label": "CASE STUDY 08: LALABABY",
+            "title": "LALABABY KIDS WEAR",
+            "description": "Charming e-commerce design focused on retention and mobile-first shopping experience for children's fashion.",
             "stat1_label": "RETENTION",
             "stat2_label": "RATING",
             "cta": "EXPLORE SYSTEM"
