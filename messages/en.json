@@ -74,19 +74,67 @@
         "label": "SELECTED PROJECTS",
         "headline": "CASE STUDIES <br/><span class='text-primary'>THAT GENERATE DOMINANCE</span>",
         "case1": {
-            "label": "CASE STUDY 01: AETHERA SYSTEMS",
-            "title": "SCALING REVENUE BY 400% IN 6 MONTHS.",
-            "description": "Implementing a custom lead-gen engine and unified design language that transformed a legacy hardware company into a digital-first market leader.",
+            "label": "CASE STUDY 01: AYU PILATES",
+            "title": "AYU PILATES",
+            "description": "Development of a premium digital platform for a pilates studio, focusing on conversion, scheduling, and high-performance user experience.",
             "stat1_label": "CONVERSION RATE",
             "stat2_label": "OPEX REDUCTION",
             "cta": "EXPLORE SYSTEM"
         },
         "case2": {
             "label": "CASE STUDY 02: NEXUS GLOBAL",
-            "title": "DOMINATING SEARCH WITH TECH PRECISION.",
-            "description": "How our technical SEO infrastructure and high-intent advertising framework secured a 22x return on ad spend for an international logistics giant.",
+            "title": "NEXUS GLOBAL",
+            "description": "Technical SEO infrastructure and high-intent advertising framework that secured significant results for a logistics giant.",
             "stat1_label": "ROAS",
             "stat2_label": "MONTHLY USERS",
+            "cta": "EXPLORE SYSTEM"
+        },
+        "case3": {
+            "label": "CASE STUDY 03",
+            "title": "QUANTUM CORE",
+            "description": "Distributed infrastructure for high-load financial clusters and real-time processing.",
+            "stat1_label": "UPTIME",
+            "stat2_label": "LATENCY",
+            "cta": "EXPLORE SYSTEM"
+        },
+        "case4": {
+            "label": "CASE STUDY 04",
+            "title": "NEURAL ENGINE",
+            "description": "Proprietary AI integration for predictive market analysis and decision flow automation.",
+            "stat1_label": "SPEED",
+            "stat2_label": "DATA",
+            "cta": "EXPLORE SYSTEM"
+        },
+        "case5": {
+            "label": "CASE STUDY 05",
+            "title": "LUX ARCANA",
+            "description": "Premium brutalist UI for European high-fashion curation with integrated e-commerce.",
+            "stat1_label": "ENGAGEMENT",
+            "stat2_label": "AOV",
+            "cta": "EXPLORE SYSTEM"
+        },
+        "case6": {
+            "label": "CASE STUDY 06",
+            "title": "KINETIC BRAND",
+            "description": "Motion-first identity for a global tech conglomerate focusing on innovation.",
+            "stat1_label": "REACH",
+            "stat2_label": "RECOGNITION",
+            "cta": "EXPLORE SYSTEM"
+        },
+        "case7": {
+            "label": "CASE STUDY 07",
+            "title": "CRYPTO CANVAS",
+            "description": "Hyper-minimalist dashboard for specialized asset and crypto management.",
+            "stat1_label": "SYNC",
+            "stat2_label": "FRICTION",
+            "cta": "EXPLORE SYSTEM"
+        },
+        "case8": {
+            "label": "CASE STUDY 08",
+            "title": "OASIS INTERFACE",
+            "description": "Biophilic design framework for specialized workplace applications in disruptive environments.",
+            "stat1_label": "RETENTION",
+            "stat2_label": "RATING",
             "cta": "EXPLORE SYSTEM"
         }
     },

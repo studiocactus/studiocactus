@@ -74,19 +74,67 @@
         "label": "PROJETOS SELECIONADOS",
         "headline": "ESTUDOS DE CASO <br/><span class='text-primary'>QUE GERARAM DOMÍNIO</span>",
         "case1": {
-            "label": "ESTUDO DE CASO 01: AETHERA SYSTEMS",
-            "title": "ESCALANDO RECEITA EM 400% EM 6 MESES.",
-            "description": "Implementação de um motor de geração de leads customizado e um sistema de design unificado que transformou uma empresa de hardware legada em uma líder de mercado digital-first.",
+            "label": "ESTUDO DE CASO 01: AYU PILATES",
+            "title": "AYU PILATES",
+            "description": "Desenvolvimento de plataforma digital premium para estúdio de pilates, focada em conversão, agendamentos e experiência do usuário de alta performance.",
             "stat1_label": "TAXA DE CONVERSÃO",
             "stat2_label": "REDUÇÃO DE OPEX",
             "cta": "EXPLORAR SISTEMA"
         },
         "case2": {
             "label": "ESTUDO DE CASO 02: NEXUS GLOBAL",
-            "title": "DOMINANDO A BUSCA COM PRECISÃO TÉCNICA.",
-            "description": "Como nossa infraestrutura de SEO técnico e framework de anúncios de alta intenção garantiram um retorno sobre investimento publicitário de 22x para um gigante logístico internacional.",
+            "title": "NEXUS GLOBAL",
+            "description": "Infraestrutura de SEO técnico e framework de anúncios de alta intenção que garantiram resultados expressivos para um gigante logístico.",
             "stat1_label": "ROAS",
             "stat2_label": "USUÁRIOS MENSAIS",
+            "cta": "EXPLORAR SISTEMA"
+        },
+        "case3": {
+            "label": "ESTUDO DE CASO 03",
+            "title": "QUANTUM CORE",
+            "description": "Infraestrutura distribuída para clusters financeiros de alta carga e processamento em tempo real.",
+            "stat1_label": "UPTIME",
+            "stat2_label": "LATÊNCIA",
+            "cta": "EXPLORAR SISTEMA"
+        },
+        "case4": {
+            "label": "ESTUDO DE CASO 04",
+            "title": "NEURAL ENGINE",
+            "description": "Integração proprietária de IA para análise preditiva de mercado e automação de fluxos de decisão.",
+            "stat1_label": "VELOCIDADE",
+            "stat2_label": "PROCESSAMENTO",
+            "cta": "EXPLORAR SISTEMA"
+        },
+        "case5": {
+            "label": "ESTUDO DE CASO 05",
+            "title": "LUX ARCANA",
+            "description": "Interface brutalista premium para curadoria de alta moda européia com e-commerce integrado.",
+            "stat1_label": "ENGAJAMENTO",
+            "stat2_label": "AOV",
+            "cta": "EXPLORAR SISTEMA"
+        },
+        "case6": {
+            "label": "ESTUDO DE CASO 06",
+            "title": "KINETIC BRAND",
+            "description": "Identidade visual focada em movimento para um conglomerado global de tecnologia e inovação.",
+            "stat1_label": "ALCANCE",
+            "stat2_label": "RECONHECIMENTO",
+            "cta": "EXPLORAR SISTEMA"
+        },
+        "case7": {
+            "label": "ESTUDO DE CASO 07",
+            "title": "CRYPTO CANVAS",
+            "description": "Dashboard hiper-minimalista para gestão especializada de ativos e criptografados.",
+            "stat1_label": "SYNC",
+            "stat2_label": "FRICTION",
+            "cta": "EXPLORAR SISTEMA"
+        },
+        "case8": {
+            "label": "ESTUDO DE CASO 08",
+            "title": "OASIS INTERFACE",
+            "description": "Framework de design biofílico para aplicativos especializados em ambientes de trabalho disruptivos.",
+            "stat1_label": "RETENÇÃO",
+            "stat2_label": "AVALIAÇÃO",
             "cta": "EXPLORAR SISTEMA"
         }
     },

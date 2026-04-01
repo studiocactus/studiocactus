@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 
 interface Project {
     id: string;
@@ -27,68 +28,76 @@ export default function ProjectsSection({ t }: { t: any }) {
         // TECH Projects (4)
         {
             id: "tech1", category: "TECH", index: "01",
-            title: t.CaseStudies.case1?.title || "AETHERA SYSTEMS",
-            description: "High-performance digital system scaling revenue by 400%.",
-            stat1_val: "400%", stat1_label: "GROWTH", stat2_val: "60%", stat2_label: "OPEX",
-            image: "https://lh3.googleusercontent.com/aida-public/AB6AXuDPSx6QeeDcCvWp49Mun64Ts-PVWyBbT1n3HG0C_jMrm4lqeq6YhBDg5dFjXU_PcT4o2G2yoYOhTh7TOChsAjS42WvcpVSTHDdKQnP8-3eBItPTBfQ9Omcn7K1ceG9lldGATt2Ysop67a94AnsCk3SwnsxcbW4jJgKMZAPJAPboHwViKbbH7ZrD7gSmVT5YhU_1kyHlmQodNfLePCypZwQQxlY2gDQ31GSG7gfNu5PrBLazA58t5V7DWILkv7Ok4EehwCBJXl46tf0",
-            tags: ["PERFORMANCE", "ARCHITECTURE", "SYSTEM"]
+            title: t.CaseStudies.case1?.title || "AYU PILATES",
+            description: t.CaseStudies.case1?.description || "",
+            stat1_val: "400%", stat1_label: t.CaseStudies.case1?.stat1_label || "GROWTH",
+            stat2_val: "60%", stat2_label: t.CaseStudies.case1?.stat2_label || "OPEX",
+            image: "/jobs/1.png",
+            tags: ["PERFORMANCE", "UI/UX", "SYSTEM"]
         },
         {
             id: "tech2", category: "TECH", index: "02",
-            title: "QUANTUM CORE",
-            description: "Distributed infrastructure for high-traffic financial clusters.",
-            stat1_val: "99.99%", stat1_label: "UPTIME", stat2_val: "2ms", stat2_label: "LATENCY",
-            image: "https://lh3.googleusercontent.com/aida-public/AB6AXuDP0Sre2C2U7v-FpYjZ7U-J_mD6-P-_V-m9-T9-X-G-H-J-K-L-M-N-O-P-Q-R-S-T-U-V-W-X-Y-Z",
-            tags: ["INFRA", "BACKEND", "SECURITY"]
+            title: t.CaseStudies.case2?.title || "NEXUS GLOBAL",
+            description: t.CaseStudies.case2?.description || "",
+            stat1_val: "22X", stat1_label: t.CaseStudies.case2?.stat1_label || "ROAS",
+            stat2_val: "1.2M", stat2_label: t.CaseStudies.case2?.stat2_label || "USERS",
+            image: "/jobs/2.png",
+            tags: ["SEO", "ADS", "INFRA"]
         },
         {
             id: "tech3", category: "TECH", index: "03",
-            title: "NEURAL ENGINE",
-            description: "Proprietary AI integration for predictive market analysis.",
-            stat1_val: "15X", stat1_label: "SPEED", stat2_val: "32TB", stat2_label: "DATA",
-            image: "https://lh3.googleusercontent.com/aida-public/AB6AXuDPSx6QeeDcCvWp49Mun64Ts-PVWyBbT1n3HG0C_jMrm4lqeq6YhBDg5dFjXU_PcT4o2G2yoYOhTh7TOChsAjS42WvcpVSTHDdKQnP8-3eBItPTBfQ9Omcn7K1ceG9lldGATt2Ysop67a94AnsCk3SwnsxcbW4jJgKMZAPJAPboHwViKbbH7ZrD7gSmVT5YhU_1kyHlmQodNfLePCypZwQQxlY2gDQ31GSG7gfNu5PrBLazA58t5V7DWILkv7Ok4EehwCBJXl46tf0",
-            tags: ["AI", "ML", "AUTOMATION"]
+            title: t.CaseStudies.case3?.title || "QUANTUM CORE",
+            description: t.CaseStudies.case3?.description || "",
+            stat1_val: "99.99%", stat1_label: t.CaseStudies.case3?.stat1_label || "UPTIME",
+            stat2_val: "2ms", stat2_label: t.CaseStudies.case3?.stat2_label || "LATENCY",
+            image: "/jobs/3.png",
+            tags: ["BACKEND", "SECURITY", "FINTECH"]
         },
         {
             id: "tech4", category: "TECH", index: "04",
-            title: "VELOCITY STACK",
-            description: "Edge computing layer for real-time betting platforms.",
-            stat1_val: "10ms", stat1_label: "RESPONSE", stat2_val: "100%", stat2_label: "ACCURACY",
-            image: "https://lh3.googleusercontent.com/aida-public/AB6AXuDP0Sre2C2U7v-FpYjZ7U-J_mD6-P-_V-m9-T9-X-G-H-J-K-L-M-N-O-P-Q-R-S-T-U-V-W-X-Y-Z",
-            tags: ["EDGE", "RUST", "SYNC"]
+            title: t.CaseStudies.case4?.title || "NEURAL ENGINE",
+            description: t.CaseStudies.case4?.description || "",
+            stat1_val: "15X", stat1_label: t.CaseStudies.case4?.stat1_label || "SPEED",
+            stat2_val: "32TB", stat2_label: t.CaseStudies.case4?.stat2_label || "DATA",
+            image: "/jobs/4.png",
+            tags: ["AI", "ML", "AUTOMATION"]
         },
         // DESIGN Projects (4)
         {
             id: "design1", category: "DESIGN", index: "05",
-            title: "LUX ARCANA",
-            description: "Premium brutalist UI for a European high-fashion curator.",
-            stat1_val: "88%", stat1_label: "ENGAGEMENT", stat2_val: "3.5X", stat2_label: "AOV",
-            image: "https://lh3.googleusercontent.com/aida-public/AB6AXuDP0Sre2C2U7v-FpYjZ7U-J_mD6-P-_V-m9-T9-X-G-H-J-K-L-M-N-O-P-Q-R-S-T-U-V-W-X-Y-Z",
-            tags: ["BRUTALISM", "UX", "E-COMMERCE"]
+            title: t.CaseStudies.case5?.title || "LUX ARCANA",
+            description: t.CaseStudies.case5?.description || "",
+            stat1_val: "88%", stat1_label: t.CaseStudies.case5?.stat1_label || "REACH",
+            stat2_val: "3.5X", stat2_label: t.CaseStudies.case5?.stat2_label || "AOV",
+            image: "/jobs/5.png",
+            tags: ["BRUTALISM", "FASHION", "UX"]
         },
         {
             id: "design2", category: "DESIGN", index: "06",
-            title: "KINETIC BRAND",
-            description: "Motion-first identity for a global tech conglomerate.",
-            stat1_val: "1.2M", stat1_label: "REACH", stat2_val: "450%", stat2_label: "RECOGNITION",
-            image: "https://lh3.googleusercontent.com/aida-public/AB6AXuDPSx6QeeDcCvWp49Mun64Ts-PVWyBbT1n3HG0C_jMrm4lqeq6YhBDg5dFjXU_PcT4o2G2yoYOhTh7TOChsAjS42WvcpVSTHDdKQnP8-3eBItPTBfQ9Omcn7K1ceG9lldGATt2Ysop67a94AnsCk3SwnsxcbW4jJgKMZAPJAPboHwViKbbH7ZrD7gSmVT5YhU_1kyHlmQodNfLePCypZwQQxlY2gDQ31GSG7gfNu5PrBLazA58t5V7DWILkv7Ok4EehwCBJXl46tf0",
+            title: t.CaseStudies.case6?.title || "KINETIC BRAND",
+            description: t.CaseStudies.case6?.description || "",
+            stat1_val: "1.2M", stat1_label: t.CaseStudies.case6?.stat1_label || "REACH",
+            stat2_val: "450%", stat2_label: t.CaseStudies.case6?.stat2_label || "RATING",
+            image: "/jobs/6.png",
             tags: ["IDENTITY", "MOTION", "VISUAL"]
         },
         {
             id: "design3", category: "DESIGN", index: "07",
-            title: "CRYPTO CANVAS",
-            description: "Hyper-minimalist dashboard for specialized asset management.",
-            stat1_val: "20ms", stat1_label: "SYNC", stat2_val: "0.01", stat2_label: "FRICTION",
-            image: "https://lh3.googleusercontent.com/aida-public/AB6AXuDP0Sre2C2U7v-FpYjZ7U-J_mD6-P-_V-m9-T9-X-G-H-J-K-L-M-N-O-P-Q-R-S-T-U-V-W-X-Y-Z",
-            tags: ["DASHBOARD", "CRYPTO", "MINIMALISM"]
+            title: t.CaseStudies.case7?.title || "CRYPTO CANVAS",
+            description: t.CaseStudies.case7?.description || "",
+            stat1_val: "20ms", stat1_label: t.CaseStudies.case7?.stat1_label || "SYNC",
+            stat2_val: "0.01", stat2_label: t.CaseStudies.case7?.stat2_label || "FRICTION",
+            image: "/jobs/7.png",
+            tags: ["CRYPTO", "WEB3", "MINIMALISM"]
         },
         {
             id: "design4", category: "DESIGN", index: "08",
-            title: "OASIS INTERFACE",
-            description: "Biophilic design framework for high-end workspace apps.",
-            stat1_val: "32%", stat1_label: "RETENTION", stat2_val: "4.8", stat2_label: "RATING",
-            image: "https://lh3.googleusercontent.com/aida-public/AB6AXuDPSx6QeeDcCvWp49Mun64Ts-PVWyBbT1n3HG0C_jMrm4lqeq6YhBDg5dFjXU_PcT4o2G2yoYOhTh7TOChsAjS42WvcpVSTHDdKQnP8-3eBItPTBfQ9Omcn7K1ceG9lldGATt2Ysop67a94AnsCk3SwnsxcbW4jJgKMZAPJAPboHwViKbbH7ZrD7gSmVT5YhU_1kyHlmQodNfLePCypZwQQxlY2gDQ31GSG7gfNu5PrBLazA58t5V7DWILkv7Ok4EehwCBJXl46tf0",
-            tags: ["BIOPHILIC", "SYSTEMS", "APPS"]
+            title: t.CaseStudies.case8?.title || "OASIS INTERFACE",
+            description: t.CaseStudies.case8?.description || "",
+            stat1_val: "32%", stat1_label: t.CaseStudies.case8?.stat1_label || "RETENTION",
+            stat2_val: "4.8", stat2_label: t.CaseStudies.case8?.stat2_label || "RATING",
+            image: "/jobs/8.png",
+            tags: ["BIOPHILIC", "WORKSPACE", "APPS"]
         }
     ];
 
@@ -197,14 +206,21 @@ function ProjectItem({ project, t }: { project: Project, t: any }) {
             >
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 pb-20 pt-4 px-4 md:px-12">
                     {/* Visual Portal */}
-                    <div className="lg:col-span-7 relative aspect-[16/9] overflow-hidden grayscale hover:grayscale-0 transition-all duration-1000 bg-neutral-900 border border-white/5">
-                        <motion.img
+                    <div className="lg:col-span-7 relative aspect-[16/9] overflow-hidden transition-all duration-1000 bg-neutral-900 border border-white/5">
+                        <motion.div
                             animate={{ scale: isHovered ? 1 : 1.15 }}
                             transition={{ duration: 1.5, ease: "easeOut" }}
-                            src={project.image}
-                            alt={project.title}
-                            className="w-full h-full object-cover"
-                        />
+                            className="relative w-full h-full"
+                        >
+                            <Image
+                                src={project.image}
+                                alt={project.title}
+                                fill
+                                className="object-cover"
+                                priority={project.index === "01"}
+                                quality={90}
+                            />
+                        </motion.div>
                         <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent pointer-events-none" />
 
                         {/* Floating Stats on Image - Adjusted for mobile breath */}
