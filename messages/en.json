@@ -4,6 +4,7 @@
         "services": "SERVICES",
         "tech": "TECH",
         "about": "ABOUT",
+        "contact": "CONTACT",
         "start_project": "START PROJECT"
     },
     "Hero": {
@@ -23,22 +24,29 @@
     "Capabilities": {
         "label": "CAPABILITIES",
         "headline": "OUR ARCHITECTURAL <br/><span class='text-primary'>CORE STRENGTHS</span>",
-        "tech": {
-            "title": "ENGINEERED TECH",
-            "description": "Custom conversion-focused software, CRM integrations, and high-load backend systems designed for scalability."
+        "tech_partner": {
+            "title": "TECH PARTNER (MAINTENANCE)",
+            "description": "Acting as your dedicated developer. Continuous improvements, new features, and security shielding so your business never stops."
         },
-        "ads": {
-            "title": "PERFORMANCE ADS",
-            "description": "Surgical media buying across Meta, Google, and LinkedIn with a focus on immediate CAC reduction.",
-            "learn_more": "LEARN MORE"
+        "web_apps": {
+            "title": "WEB APPS (PWA)",
+            "description": "Tailor-made systems with an app-like look that work directly in any mobile browser."
         },
-        "retention": {
-            "title": "RETENTION RATE",
-            "description": "We don't do 'monthly retainers'. We build long-term partnerships based on strictly enforced KPI benchmarks."
+        "data_integration": {
+            "title": "DATA INTEGRATION",
+            "description": "Connecting systems, APIs, and databases for intelligent and automated workflows."
         },
-        "design": {
-            "title": "CONVERSION DESIGN",
-            "description": "Visual identities and UI/UX flows engineered to reduce friction and maximize user trust."
+        "digital_platforms": {
+            "title": "DIGITAL PLATFORMS",
+            "description": "E-commerce, marketplaces, and portals with flawless user experience."
+        },
+        "bespoke_solutions": {
+            "title": "BESPOKE SOLUTIONS",
+            "description": "Custom software engineered to solve your business's specific challenges."
+        },
+        "automation_ai": {
+            "title": "AUTOMATION & AI",
+            "description": "Automated processes and artificial intelligence applied to scale results effortlessly."
         }
     },
     "Highlights": {
@@ -132,5 +140,29 @@
         "legal": "Legal",
         "status": "Status",
         "system_active": "Operational"
+    },
+    "Contact": {
+        "label": "CONTACT",
+        "badge": "LET'S MAKE IT HAPPEN",
+        "headline": "READY TO <br/><span class='text-primary'>GET STARTED?</span>",
+        "title": "Contact information",
+        "name_placeholder": "Full name",
+        "email_placeholder": "Business email",
+        "project_placeholder": "Tell us about your project",
+        "budget_label": "Budget",
+        "budget_select": "Select...",
+        "budget_options": [
+            "$5k - $10k",
+            "$10k - $25k",
+            "$25k - $50k",
+            "$50k+"
+        ],
+        "help_label": "How can we help you",
+        "help_options": {
+            "branding": "Branding",
+            "design": "Design",
+            "development": "Development"
+        },
+        "button_send": "Send message"
     }
 }

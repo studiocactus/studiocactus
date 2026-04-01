@@ -27,11 +27,11 @@ export default function StatsSection({ t }: StatsSectionProps) {
     const stats = [t.item1, t.item2, t.item3, t.item4];
 
     return (
-        <section className="relative py-48 px-6 bg-[#0a0a0a] border-t border-white/5 overflow-hidden">
+        <section className="relative py-48 bg-[#0a0a0a] border-t border-white/5 overflow-hidden">
             {/* Interactive Topographic Background - Stays still when mouse is still */}
             <InteractiveWaves />
 
-            <div className="relative z-10 max-w-7xl mx-auto">
+            <div className="relative z-10 max-w-7xl mx-auto px-8">
                 <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-40 gap-12">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}

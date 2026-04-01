@@ -43,8 +43,8 @@ export default function SuccessStories({ t }: SuccessStoriesProps) {
     const col2 = testimonials.filter((_, i) => i % 2 !== 0);
 
     return (
-        <section className="py-40 px-6 bg-black relative overflow-hidden border-t border-white/5">
-            <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-start">
+        <section className="py-40 bg-black relative overflow-hidden border-t border-white/5">
+            <div className="max-w-7xl mx-auto px-8 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-start">
 
                 {/* Left Side: Standardized Header (5 cols) */}
                 <div className="lg:col-span-5 lg:sticky lg:top-40 z-20">

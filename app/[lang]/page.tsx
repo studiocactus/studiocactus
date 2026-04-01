@@ -10,6 +10,8 @@ import SuccessStories from "@/components/SuccessStories";
 import InteractiveWaves from "@/components/InteractiveWaves";
 import DictionarySwitcher from "@/components/DictionarySwitcher";
 import ScrollToTop from "@/components/ScrollToTop";
+import ContactForm from "@/components/ContactForm";
+import IdleWhatsApp from "@/components/IdleWhatsApp";
 
 export default async function Home({
   params,
@@ -29,6 +31,7 @@ export default async function Home({
             <a href="#work" className="hover:text-primary transition-colors">{t.Navigation.work}</a>
             <a href="#tech" className="hover:text-primary transition-colors">{t.Navigation.tech}</a>
             <a href="#about" className="hover:text-primary transition-colors">{t.Navigation.about}</a>
+            <a href="#contact" className="hover:text-primary transition-colors">{t.Navigation.contact}</a>
           </div>
           <div className="flex items-center gap-8">
             <DictionarySwitcher currentLocale={lang as Locale} />
@@ -91,46 +94,158 @@ export default async function Home({
 
         <div id="services">
           {/* Services - Technical Architecture Grid */}
-          <section className="py-40 px-6 bg-background border-y border-white/5 relative z-10">
-            <div className="max-w-7xl mx-auto">
+          <section className="py-40 bg-background border-y border-white/5 relative z-10 w-full">
+            <div className="max-w-7xl mx-auto px-8">
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-24 items-start">
                 <div className="lg:col-span-12">
-                  <div className="inline-flex items-center gap-3 px-4 py-2 border border-white/10 bg-white/5 mb-8">
-                    <div className="w-2 h-2 bg-primary animate-pulse" />
-                    <span className="font-label text-xs uppercase tracking-[0.2em] text-neutral-400 leading-none">{t.Capabilities.label}</span>
+                  <div className="max-w-4xl">
+                    <div className="inline-flex items-center gap-3 px-4 py-2 border border-white/10 bg-white/5 mb-8">
+                      <div className="w-2 h-2 bg-primary animate-pulse" />
+                      <span className="font-label text-xs uppercase tracking-[0.2em] text-neutral-400 leading-none">{t.Capabilities.label}</span>
+                    </div>
+                    <h2 className="font-headline text-4xl md:text-6xl font-bold tracking-tight uppercase leading-none text-white mb-12"
+                      dangerouslySetInnerHTML={{ __html: t.Capabilities.headline }} />
                   </div>
-                  <h2 className="font-headline text-5xl md:text-7xl font-bold tracking-tight uppercase leading-none text-white lg:max-w-3xl mb-12"
-                    dangerouslySetInnerHTML={{ __html: t.Capabilities.headline }} />
                 </div>
 
-                <div className="lg:col-span-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-1 bg-white/5 p-[1px]">
-                  <div className="bg-background p-10 group hover:bg-primary transition-all duration-700 relative overflow-hidden">
-                    <div className="text-4xl font-black text-white/5 group-hover:text-black/10 transition-colors mb-6">01</div>
-                    <h3 className="text-xl font-bold text-white group-hover:text-black uppercase mb-4">{t.Capabilities.tech.title}</h3>
-                    <p className="text-neutral-500 group-hover:text-black/80 font-body uppercase leading-relaxed text-[11px] tracking-tight">
-                      {t.Capabilities.tech.description}
-                    </p>
+                <div className="lg:col-span-12 flex flex-col gap-[1px] bg-white/5 p-[1px]">
+
+                  {/* First Row: 01-03 */}
+                  <div className="flex flex-col lg:flex-row gap-[1px] h-[300px]">
+                    {/* 01: Tech Partner */}
+                    <div className="flex-1 bg-background p-8 group hover:flex-[2.5] hover:bg-primary transition-all duration-700 ease-in-out relative overflow-hidden border border-white/5 lg:border-none">
+                      <div className="relative z-10 flex flex-col h-full justify-between">
+                        <div>
+                          <div className="flex justify-between items-start mb-6">
+                            <div className="text-4xl font-black text-white/5 group-hover:text-black/10 transition-colors leading-none font-headline">01</div>
+                            <div className="px-2 py-0.5 border border-white/10 bg-white/5 text-[7px] text-neutral-500 font-black tracking-widest uppercase group-hover:border-black/20 group-hover:text-black/40">ASSINATURA MENSAL</div>
+                          </div>
+                          <h3 className="text-xl md:text-2xl font-bold text-white group-hover:text-black uppercase mb-4 transition-colors">{t.Capabilities.tech_partner.title}</h3>
+                          <p className="text-neutral-500 group-hover:text-black font-body uppercase leading-relaxed text-[11px] tracking-tight max-w-[280px] opacity-60 group-hover:opacity-100 transition-opacity">
+                            {t.Capabilities.tech_partner.description}
+                          </p>
+                        </div>
+                        <div className="mt-8 translate-y-20 group-hover:translate-y-0 transition-transform duration-700">
+                          <div className="w-10 h-10 border border-primary group-hover:border-black flex items-center justify-center text-primary group-hover:text-black">
+                            <span className="material-symbols-outlined text-sm">shield</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="absolute inset-0 bg-gradient-to-r from-black/80 to-transparent opacity-0 group-hover:opacity-20 transition-opacity" />
+                    </div>
+
+                    {/* 02: Web Apps */}
+                    <div className="flex-1 bg-background p-8 group hover:flex-[2.5] hover:bg-primary transition-all duration-700 ease-in-out relative overflow-hidden border border-white/5 lg:border-none">
+                      <div className="relative z-10 flex flex-col h-full justify-between">
+                        <div>
+                          <div className="flex justify-between items-start mb-6">
+                            <div className="text-4xl font-black text-white/5 group-hover:text-black/10 transition-colors leading-none font-headline">02</div>
+                            <div className="px-2 py-0.5 border border-primary/20 bg-primary/5 text-[7px] text-primary font-black tracking-widest uppercase group-hover:border-black/20 group-hover:text-black/60">DISPONÍVEL</div>
+                          </div>
+                          <h3 className="text-xl md:text-2xl font-bold text-white group-hover:text-black uppercase mb-4 transition-colors">{t.Capabilities.web_apps.title}</h3>
+                          <p className="text-neutral-500 group-hover:text-black font-body uppercase leading-relaxed text-[11px] tracking-tight max-w-[280px] opacity-60 group-hover:opacity-100 transition-opacity">
+                            {t.Capabilities.web_apps.description}
+                          </p>
+                        </div>
+                        <div className="mt-8 translate-y-20 group-hover:translate-y-0 transition-transform duration-700">
+                          <div className="w-10 h-10 border border-primary group-hover:border-black flex items-center justify-center text-primary group-hover:text-black">
+                            <span className="material-symbols-outlined text-sm">smartphone</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="absolute inset-0 bg-gradient-to-r from-black/80 to-transparent opacity-0 group-hover:opacity-20 transition-opacity" />
+                    </div>
+
+                    {/* 03: Data Integration */}
+                    <div className="flex-1 bg-background p-8 group hover:flex-[2.5] hover:bg-primary transition-all duration-700 ease-in-out relative overflow-hidden border border-white/5 lg:border-none">
+                      <div className="relative z-10 flex flex-col h-full justify-between">
+                        <div>
+                          <div className="flex justify-between items-start mb-6">
+                            <div className="text-4xl font-black text-white/5 group-hover:text-black/10 transition-colors leading-none font-headline">03</div>
+                            <div className="px-2 py-0.5 border border-yellow-500/20 bg-yellow-500/5 text-[7px] text-yellow-500 font-black tracking-widest uppercase group-hover:border-black/20 group-hover:text-black/60">EM DESENVOLVIMENTO</div>
+                          </div>
+                          <h3 className="text-xl md:text-2xl font-bold text-white group-hover:text-black uppercase mb-4 transition-colors">{t.Capabilities.data_integration.title}</h3>
+                          <p className="text-neutral-500 group-hover:text-black font-body uppercase leading-relaxed text-[11px] tracking-tight max-w-[280px] opacity-60 group-hover:opacity-100 transition-opacity">
+                            {t.Capabilities.data_integration.description}
+                          </p>
+                        </div>
+                        <div className="mt-8 translate-y-20 group-hover:translate-y-0 transition-transform duration-700">
+                          <div className="w-10 h-10 border border-primary group-hover:border-black flex items-center justify-center text-primary group-hover:text-black">
+                            <span className="material-symbols-outlined text-sm">database</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="absolute inset-0 bg-gradient-to-r from-black/80 to-transparent opacity-0 group-hover:opacity-20 transition-opacity" />
+                    </div>
                   </div>
-                  <div className="bg-background p-10 group hover:bg-primary transition-all duration-700 relative overflow-hidden">
-                    <div className="text-4xl font-black text-white/5 group-hover:text-black/10 transition-colors mb-6">02</div>
-                    <h3 className="text-xl font-bold text-white group-hover:text-black uppercase mb-4">{t.Capabilities.ads.title}</h3>
-                    <p className="text-neutral-500 group-hover:text-black/80 font-body uppercase leading-relaxed text-[11px] tracking-tight">
-                      {t.Capabilities.ads.description}
-                    </p>
-                  </div>
-                  <div className="bg-background p-10 group hover:bg-primary transition-all duration-700 relative overflow-hidden">
-                    <div className="text-4xl font-black text-white/5 group-hover:text-black/10 transition-colors mb-6">03</div>
-                    <h3 className="text-xl font-bold text-white group-hover:text-black uppercase mb-4">{t.Capabilities.retention.title}</h3>
-                    <p className="text-neutral-500 group-hover:text-black/80 font-body uppercase leading-relaxed text-[11px] tracking-tight">
-                      {t.Capabilities.retention.description}
-                    </p>
-                  </div>
-                  <div className="bg-background p-10 group hover:bg-primary transition-all duration-700 relative overflow-hidden">
-                    <div className="text-4xl font-black text-white/5 group-hover:text-black/10 transition-colors mb-6">04</div>
-                    <h3 className="text-xl font-bold text-white group-hover:text-black uppercase mb-4">{t.Capabilities.design.title}</h3>
-                    <p className="text-neutral-500 group-hover:text-black/80 font-body uppercase leading-relaxed text-[11px] tracking-tight">
-                      {t.Capabilities.design.description}
-                    </p>
+
+                  {/* Second Row: 04-06 */}
+                  <div className="flex flex-col lg:flex-row gap-[1px] h-[300px]">
+                    {/* 04: Digital Platforms */}
+                    <div className="flex-1 bg-background p-8 group hover:flex-[2.5] hover:bg-primary transition-all duration-700 ease-in-out relative overflow-hidden border border-white/5 lg:border-none">
+                      <div className="relative z-10 flex flex-col h-full justify-between">
+                        <div>
+                          <div className="flex justify-between items-start mb-6">
+                            <div className="text-4xl font-black text-white/5 group-hover:text-black/10 transition-colors leading-none font-headline">04</div>
+                            <div className="px-2 py-0.5 border border-primary/20 bg-primary/5 text-[7px] text-primary font-black tracking-widest uppercase group-hover:border-black/20 group-hover:text-black/60">DISPONÍVEL</div>
+                          </div>
+                          <h3 className="text-xl md:text-2xl font-bold text-white group-hover:text-black uppercase mb-4 transition-colors">{t.Capabilities.digital_platforms.title}</h3>
+                          <p className="text-neutral-500 group-hover:text-black font-body uppercase leading-relaxed text-[11px] tracking-tight max-w-[280px] opacity-60 group-hover:opacity-100 transition-opacity">
+                            {t.Capabilities.digital_platforms.description}
+                          </p>
+                        </div>
+                        <div className="mt-8 translate-y-20 group-hover:translate-y-0 transition-transform duration-700">
+                          <div className="w-10 h-10 border border-primary group-hover:border-black flex items-center justify-center text-primary group-hover:text-black">
+                            <span className="material-symbols-outlined text-sm">shopping_bag</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="absolute inset-0 bg-gradient-to-r from-black/80 to-transparent opacity-0 group-hover:opacity-20 transition-opacity" />
+                    </div>
+
+                    {/* 05: Bespoke Solutions */}
+                    <div className="flex-1 bg-background p-8 group hover:flex-[2.5] hover:bg-primary transition-all duration-700 ease-in-out relative overflow-hidden border border-white/5 lg:border-none">
+                      <div className="relative z-10 flex flex-col h-full justify-between">
+                        <div>
+                          <div className="flex justify-between items-start mb-6">
+                            <div className="text-4xl font-black text-white/5 group-hover:text-black/10 transition-colors leading-none font-headline">05</div>
+                            <div className="px-2 py-0.5 border border-primary/20 bg-primary/5 text-[7px] text-primary font-black tracking-widest uppercase group-hover:border-black/20 group-hover:text-black/60">DISPONÍVEL</div>
+                          </div>
+                          <h3 className="text-xl md:text-2xl font-bold text-white group-hover:text-black uppercase mb-4 transition-colors">{t.Capabilities.bespoke_solutions.title}</h3>
+                          <p className="text-neutral-500 group-hover:text-black font-body uppercase leading-relaxed text-[11px] tracking-tight max-w-[280px] opacity-60 group-hover:opacity-100 transition-opacity">
+                            {t.Capabilities.bespoke_solutions.description}
+                          </p>
+                        </div>
+                        <div className="mt-8 translate-y-20 group-hover:translate-y-0 transition-transform duration-700">
+                          <div className="w-10 h-10 border border-primary group-hover:border-black flex items-center justify-center text-primary group-hover:text-black">
+                            <span className="material-symbols-outlined text-sm">public</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="absolute inset-0 bg-gradient-to-r from-black/80 to-transparent opacity-0 group-hover:opacity-20 transition-opacity" />
+                    </div>
+
+                    {/* 06: Automation & IA */}
+                    <div className="flex-1 bg-background p-8 group hover:flex-[2.5] hover:bg-primary transition-all duration-700 ease-in-out relative overflow-hidden border border-white/5 lg:border-none">
+                      <div className="relative z-10 flex flex-col h-full justify-between">
+                        <div>
+                          <div className="flex justify-between items-start mb-6">
+                            <div className="text-4xl font-black text-white/5 group-hover:text-black/10 transition-colors leading-none font-headline">06</div>
+                            <div className="px-2 py-0.5 border border-yellow-500/20 bg-yellow-500/5 text-[7px] text-yellow-500 font-black tracking-widest uppercase group-hover:border-black/20 group-hover:text-black/60">EM DESENVOLVIMENTO</div>
+                          </div>
+                          <h3 className="text-xl md:text-2xl font-bold text-white group-hover:text-black uppercase mb-4 transition-colors">{t.Capabilities.automation_ai.title}</h3>
+                          <p className="text-neutral-500 group-hover:text-black font-body uppercase leading-relaxed text-[11px] tracking-tight max-w-[280px] opacity-60 group-hover:opacity-100 transition-opacity">
+                            {t.Capabilities.automation_ai.description}
+                          </p>
+                        </div>
+                        <div className="mt-8 translate-y-20 group-hover:translate-y-0 transition-transform duration-700">
+                          <div className="w-10 h-10 border border-primary group-hover:border-black flex items-center justify-center text-primary group-hover:text-black">
+                            <span className="material-symbols-outlined text-sm">bolt</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="absolute inset-0 bg-gradient-to-r from-black/80 to-transparent opacity-0 group-hover:opacity-20 transition-opacity" />
+                    </div>
                   </div>
                 </div>
               </div>
@@ -153,8 +268,8 @@ export default async function Home({
         </div>
 
         {/* Final CTA Section */}
-        <section className="py-40 px-6 bg-primary text-on-primary font-space-grotesk relative z-10">
-          <div className="max-w-7xl mx-auto text-center">
+        <section className="py-40 bg-primary text-on-primary font-space-grotesk relative z-10 w-full">
+          <div className="max-w-7xl mx-auto px-8 text-center">
             <h2 className="font-headline text-4xl md:text-6xl font-bold tracking-tight mb-12 uppercase leading-none text-on-primary"
               dangerouslySetInnerHTML={{ __html: t.CTA.headline }} />
             <div className="flex flex-col md:flex-row justify-center items-center gap-8 mt-16">
@@ -165,6 +280,24 @@ export default async function Home({
                 {t.CTA.button_audit}
               </button>
             </div>
+          </div>
+        </section>
+
+        {/* Contact Section - High Conversion Technical Form */}
+        <section id="contact" className="py-32 bg-background relative z-10 border-t border-white/5">
+          <div className="max-w-7xl mx-auto px-8">
+            <div className="mb-24 text-left">
+              <div className="inline-flex items-center gap-3 px-4 py-2 bg-white/5 border border-white/10 mb-8">
+                <div className="w-2 h-2 bg-primary rounded-full animate-pulse" />
+                <span className="text-[10px] font-black tracking-[0.3em] text-neutral-400 uppercase leading-none">
+                  {t.Contact?.badge}
+                </span>
+              </div>
+              <h2 className="font-headline text-4xl md:text-6xl font-bold tracking-tighter mb-4 uppercase leading-none text-white"
+                dangerouslySetInnerHTML={{ __html: t.Contact?.headline || '' }} />
+            </div>
+
+            <ContactForm t={t.Contact} />
           </div>
         </section>
       </main>
@@ -195,6 +328,7 @@ export default async function Home({
                 <li><a href="#work" className="hover:text-primary transition-colors uppercase">{t.Navigation.work}</a></li>
                 <li><a href="#tech" className="hover:text-primary transition-colors uppercase">{t.Navigation.tech}</a></li>
                 <li><a href="#about" className="hover:text-primary transition-colors uppercase">{t.Navigation.about}</a></li>
+                <li><a href="#contact" className="hover:text-primary transition-colors uppercase">{t.Navigation.contact}</a></li>
               </ul>
             </div>
 
@@ -300,6 +434,7 @@ export default async function Home({
 
       {/* Global Command: Scroll to Top Unit [Off-Standard] */}
       <ScrollToTop />
+      <IdleWhatsApp />
     </div>
   );
 }

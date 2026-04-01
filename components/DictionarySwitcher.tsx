@@ -1,5 +1,7 @@
 "use client";
 
+import React from "react";
+
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { i18n, type Locale } from "@/i18n-config";
@@ -15,20 +17,24 @@ export default function DictionarySwitcher({ currentLocale }: { currentLocale: L
     };
 
     return (
-        <div className="flex items-center gap-1 p-1 bg-white/5 border border-white/10 font-mono text-[9px] font-black tracking-tighter">
-            {i18n.locales.map((locale) => {
+        <div className="flex items-center gap-4 font-mono text-[10px] font-bold tracking-widest">
+            {i18n.locales.map((locale, index) => {
                 const isActive = currentLocale === locale;
                 return (
-                    <Link
-                        key={locale}
-                        href={redirectedPathname(locale)}
-                        className={`px-3 py-1.5 transition-all duration-300 uppercase ${isActive
-                                ? "bg-primary text-black"
-                                : "text-neutral-600 hover:text-white hover:bg-white/5"
-                            }`}
-                    >
-                        {locale}
-                    </Link>
+                    <React.Fragment key={locale}>
+                        <Link
+                            href={redirectedPathname(locale)}
+                            className={`transition-colors duration-300 uppercase ${isActive
+                                ? "text-primary border-b border-primary/40"
+                                : "text-neutral-600 hover:text-white"
+                                }`}
+                        >
+                            {locale}
+                        </Link>
+                        {index < i18n.locales.length - 1 && (
+                            <span className="text-neutral-800">/</span>
+                        )}
+                    </React.Fragment>
                 );
             })}
         </div>

@@ -139,8 +139,8 @@ export default function ProjectsSection({ t }: { t: any }) {
     ];
 
     return (
-        <section id="projects" className="py-24 px-6 bg-[#141414] relative overflow-hidden transition-colors duration-700">
-            <div className="max-w-7xl mx-auto">
+        <section id="projects" className="py-24 bg-[#141414] relative overflow-hidden transition-colors duration-700">
+            <div className="max-w-7xl mx-auto px-8">
 
                 {/* Technical Index Header */}
                 <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-12 mb-24">

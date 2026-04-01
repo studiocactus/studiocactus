@@ -4,6 +4,7 @@
         "services": "SERVIÇOS",
         "tech": "TECNOLOGIA",
         "about": "SOBRE",
+        "contact": "CONTATO",
         "start_project": "INICIAR PROJETO"
     },
     "Hero": {
@@ -23,22 +24,29 @@
     "Capabilities": {
         "label": "CAPACIDADES",
         "headline": "NOSSAS <span class='text-primary'>FORÇAS</span> <br/>ARQUITETÔNICAS CORE",
-        "tech": {
-            "title": "TECNOLOGIA ENGENHARADA",
-            "description": "Software focado em conversão, integrações CRM e sistemas backend de alta carga projetados para escala."
+        "tech_partner": {
+            "title": "TECH PARTNER (SUSTENTAÇÃO)",
+            "description": "Atuação como seu desenvolvedor dedicado. Melhorias contínuas, novas features e blindagem de segurança para seu negócio não parar."
         },
-        "ads": {
-            "title": "ANÚNCIOS DE ALTA PERFORMANCE",
-            "description": "Compra cirúrgica de mídia em Meta, Google e LinkedIn com foco na redução imediata do CAC.",
-            "learn_more": "SAIBA MAIS"
+        "web_apps": {
+            "title": "WEB APPS (PWA)",
+            "description": "Sistemas feitos sob medida com visual de aplicativo que funcionam direto no navegador de qualquer celular."
         },
-        "retention": {
-            "title": "TAXA DE RETENÇÃO",
-            "description": "Não fazemos 'mensalidades'. Construímos parcerias de longo prazo baseadas em benchmarks de KPI rigorosamente aplicados."
+        "data_integration": {
+            "title": "INTEGRAÇÃO DE DADOS",
+            "description": "Conexão entre sistemas, APIs e bancos de dados para fluxos inteligentes e automatizados."
         },
-        "design": {
-            "title": "DESIGN DE CONVERSÃO",
-            "description": "Identidades visuais e fluxos de UI/UX projetados para reduzir o atrito e maximizar a confiança do usuário."
+        "digital_platforms": {
+            "title": "PLATAFORMAS DIGITAIS",
+            "description": "E-commerce, marketplaces e portais com experiência de usuário impecável."
+        },
+        "bespoke_solutions": {
+            "title": "SOLUÇÕES SOB MEDIDA",
+            "description": "Software personalizado para resolver desafios específicos do seu negócio."
+        },
+        "automation_ai": {
+            "title": "AUTOMAÇÃO & IA",
+            "description": "Processos automatizados e inteligência artificial aplicada para escalar resultados."
         }
     },
     "Highlights": {
@@ -132,5 +140,29 @@
         "legal": "Legal",
         "status": "Status",
         "system_active": "Operacional"
+    },
+    "Contact": {
+        "label": "CONTATO",
+        "badge": "VAMOS FAZER ACONTECER",
+        "headline": "PRONTOS PARA <br/><span class='text-primary'>COMECAR?</span>",
+        "title": "Informações de contato",
+        "name_placeholder": "Nome completo",
+        "email_placeholder": "E-mail corporativo",
+        "project_placeholder": "Fale sobre seu projeto",
+        "budget_label": "Orçamento",
+        "budget_select": "Selecione...",
+        "budget_options": [
+            "R$ 25k - R$ 50k",
+            "R$ 50k - R$ 100k",
+            "R$ 100k - R$ 250k",
+            "R$ 250k+"
+        ],
+        "help_label": "Como podemos te ajudar",
+        "help_options": {
+            "branding": "Branding",
+            "design": "Design",
+            "development": "Desenvolvimento"
+        },
+        "button_send": "Enviar mensagem"
     }
 }
