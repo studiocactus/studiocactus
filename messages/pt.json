@@ -126,9 +126,10 @@
         }
     },
     "CTA": {
-        "headline": "PRONTO PARA ENGENHAR <br/>SEU CRESCIMENTO?",
-        "button_start": "INICIAR PROJETO",
-        "button_audit": "AGENDAR AUDITORIA"
+        "badge": "CONSULTA ESTRATÉGICA",
+        "headline": "PRONTO PARA RE-ENGENHEIRAR <br/>SUA TRAJETÓRIA DE <span class='text-primary'>RECEITA?</span>",
+        "button_main": "AGENDAR CALL ESTRATÉGICO",
+        "disclaimer": "ESTRITAMENTE LIMITADO A 2 NOVOS CLIENTES POR TRIMESTRE."
     },
     "Footer": {
         "agency_tag": "AGÊNCIA DE WEB DESIGN",

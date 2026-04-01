@@ -126,9 +126,10 @@
         }
     },
     "CTA": {
-        "headline": "READY TO ENGINEER <br/>YOUR GROWTH?",
-        "button_start": "START PROJECT",
-        "button_audit": "BOOK AUDIT"
+        "badge": "STRATEGIC CONSULTATION",
+        "headline": "READY TO RE-ENGINEER <br/>YOUR <span class='text-primary'>REVENUE TRAJECTORY?</span>",
+        "button_main": "BOOK STRATEGY CALL",
+        "disclaimer": "STRICTLY LIMITED TO 2 NEW CLIENT ENGAGEMENTS PER QUARTER."
     },
     "Footer": {
         "agency_tag": "WEB DESIGN AGENCY",

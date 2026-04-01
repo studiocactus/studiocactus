@@ -267,19 +267,41 @@ export default async function Home({
           <SuccessStories t={t} />
         </div>
 
-        {/* Final CTA Section */}
-        <section className="py-40 bg-primary text-on-primary font-space-grotesk relative z-10 w-full">
-          <div className="max-w-7xl mx-auto px-8 text-center">
-            <h2 className="font-headline text-4xl md:text-6xl font-bold tracking-tight mb-12 uppercase leading-none text-on-primary"
-              dangerouslySetInnerHTML={{ __html: t.CTA.headline }} />
-            <div className="flex flex-col md:flex-row justify-center items-center gap-8 mt-16">
-              <button className="bg-on-primary text-primary px-12 py-6 font-bold text-lg tracking-widest uppercase hover:opacity-90 transition-all">
-                {t.CTA.button_start}
-              </button>
-              <button className="border-2 border-on-primary text-on-primary px-12 py-6 font-bold text-lg tracking-widest uppercase hover:bg-on-primary hover:text-primary transition-all">
-                {t.CTA.button_audit}
+        {/* Final CTA Section - Dark High-Conversion */}
+        <section className="relative py-48 bg-[#0a0a0a] overflow-hidden border-t border-white/5">
+          {/* Massive background watermark */}
+          <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden">
+            <span className="font-headline text-[22vw] font-black tracking-tighter leading-none uppercase text-white/[0.03] whitespace-nowrap">
+              GROWTH
+            </span>
+          </div>
+
+          <div className="relative z-10 max-w-7xl mx-auto px-8 text-center">
+            {/* Badge */}
+            <div className="inline-flex items-center gap-3 px-5 py-2 border border-white/10 bg-white/5 mb-16">
+              <div className="w-1.5 h-1.5 bg-primary rounded-full" />
+              <span className="text-[9px] font-black tracking-[0.4em] text-neutral-400 uppercase leading-none">
+                {t.CTA.badge}
+              </span>
+            </div>
+
+            {/* Headline */}
+            <h2
+              className="font-headline text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter uppercase leading-[0.9] text-white mb-20"
+              dangerouslySetInnerHTML={{ __html: t.CTA.headline }}
+            />
+
+            {/* Single CTA Button */}
+            <div className="mb-12">
+              <button className="bg-primary text-black px-16 py-6 font-black text-sm tracking-[0.3em] uppercase hover:bg-white transition-all duration-300">
+                {t.CTA.button_main}
               </button>
             </div>
+
+            {/* Scarcity Disclaimer */}
+            <p className="text-[9px] font-bold tracking-[0.3em] text-neutral-600 uppercase">
+              {t.CTA.disclaimer}
+            </p>
           </div>
         </section>
 
