@@ -59,25 +59,24 @@ function WipeLine({
 export default function CTARevealSection({ t }: { t: any }) {
     const ref = useRef<HTMLElement>(null);
 
-    // Objective: Everything must be revealed BEFORE the text reaches the center of the viewport.
-    // 'start 95%' -> starts as it enters bottom
-    // 'end 40%' -> should be fully done before it hits the center (which is 50%)
+    // Objective: Reveal each line precisely when it's approaching the center of the screen
     const { scrollYProgress } = useScroll({
         target: ref,
-        offset: ['start 95%', 'end 45%'],
+        offset: ['start 90%', 'end 10%'],
     });
 
     const lines = t.headline_lines ?? [];
     const accentLine = t.headline_accent_line ?? (lines.length - 1);
 
-    const badgeP = useTransform(scrollYProgress, [0.05, 0.20], [0, 1]);
+    const badgeP = useTransform(scrollYProgress, [0.1, 0.25], [0, 1]);
 
-    // Dynamic progress calculation based on number of lines
+    // Dynamic progress calculation based on 3 lines
+    // Adjusted to end the sweep well before the center (0.45 progress)
     const lineProgresses = lines.map((_: string, i: number) => {
-        const start = 0.20 + (i * (0.50 / Math.max(lines.length, 1)));
-        const end = start + 0.25;
+        const start = 0.05 + (i * 0.12); // Early start for transparency
+        const end = start + 0.28;       // Fast and tight sweep
         // eslint-disable-next-line react-hooks/rules-of-hooks
-        return useTransform(scrollYProgress, [start, Math.min(end, 0.9)], [0, 1]);
+        return useTransform(scrollYProgress, [start, end], [0, 1]);
     });
 
     const buttonO = useTransform(scrollYProgress, [0.75, 0.90], [0, 1]);
@@ -92,7 +91,7 @@ export default function CTARevealSection({ t }: { t: any }) {
                 style={{ y: useTransform(scrollYProgress, [0, 1], [150, -150]) }}
                 className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden"
             >
-                <span className="font-headline text-[40vw] md:text-[15vw] font-black tracking-tighter leading-none uppercase text-white/[0.015] whitespace-nowrap">
+                <span className="font-headline text-[50vw] md:text-[25vw] font-black tracking-tighter leading-none uppercase text-white/[0.015] whitespace-nowrap">
                     ENTREGA
                 </span>
             </motion.div>
@@ -111,36 +110,18 @@ export default function CTARevealSection({ t }: { t: any }) {
                 </div>
 
                 {/* Headline Wrap */}
-                <h2 className="font-headline text-4xl md:text-[80px] font-black tracking-tighter uppercase mb-20 md:mb-28 flex flex-col items-center gap-2 md:gap-3 w-full px-4 text-center">
+                <h2 className="font-headline text-4xl md:text-[80px] lg:text-[100px] font-black tracking-tighter uppercase mb-20 md:mb-28 flex flex-col items-center gap-2 md:gap-3 w-full px-4 text-center">
                     {lines.map((line: string, i: number) => (
                         <WipeLine
                             key={i}
                             progress={lineProgresses[i]}
                             isAccent={i === accentLine}
                         >
-                            <span className="text-4xl md:text-7xl lg:text-[80px] block leading-[0.95]">{line}</span>
+                            <span className="text-4xl md:text-7xl lg:text-[100px] block leading-[0.95]">{line}</span>
                         </WipeLine>
                     ))}
                 </h2>
 
-                {/* Action Unit */}
-                <div className="flex flex-col items-center gap-8 md:gap-12">
-                    <motion.div
-                        style={{ opacity: buttonO, y: useTransform(scrollYProgress, [0.7, 0.9], [40, 0]) }}
-                    >
-                        <button className="group relative bg-primary text-black px-10 md:px-10 py-5 md:py-5 font-black text-xs md:text-[11px] tracking-[0.2em] md:tracking-[0.3em] uppercase overflow-hidden w-full max-w-[90vw] md:w-auto">
-                            <span className="relative z-10">{t.button_main}</span>
-                            <div className="absolute inset-0 bg-white translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
-                        </button>
-                    </motion.div>
-
-                    <motion.p
-                        style={{ opacity: disclaimO }}
-                        className="text-[10px] font-bold tracking-[0.4em] text-neutral-600 uppercase"
-                    >
-                        {t.disclaimer}
-                    </motion.p>
-                </div>
             </div>
         </section>
     );

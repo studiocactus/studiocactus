@@ -13,6 +13,7 @@ import ScrollToTop from "@/components/ScrollToTop";
 import ContactForm from "@/components/ContactForm";
 import IdleWhatsApp from "@/components/IdleWhatsApp";
 import Navbar from "@/components/Navbar";
+import CTARevealSection from "@/components/CTARevealSection";
 
 export default async function Home({
   params,
@@ -253,43 +254,10 @@ export default async function Home({
           <SuccessStories t={t} />
         </div>
 
-        {/* Final CTA Section - Dark High-Conversion */}
-        <section className="relative py-48 bg-[#0a0a0a] overflow-hidden border-t border-white/5">
-          {/* Massive background watermark */}
-          <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden">
-            <span className="font-headline text-[22vw] font-black tracking-tighter leading-none uppercase text-white/[0.03] whitespace-nowrap">
-              PARCERIA
-            </span>
-          </div>
-
-          <div className="relative z-10 max-w-7xl mx-auto px-8 text-center">
-            {/* Badge */}
-            <div className="inline-flex items-center gap-3 px-4 py-2 bg-white/5 border border-white/10 mb-16">
-              <div className="w-2 h-2 bg-primary rounded-full animate-pulse" />
-              <span className="text-[10px] font-black tracking-[0.3em] text-neutral-400 uppercase leading-none">
-                {t.CTA.badge}
-              </span>
-            </div>
-
-            {/* Headline */}
-            <h2
-              className="font-headline text-4xl md:text-7xl lg:text-8xl font-black tracking-tighter uppercase leading-[0.9] text-white mb-16 md:mb-20"
-              dangerouslySetInnerHTML={{ __html: t.CTA.headline }}
-            />
-
-            {/* Single CTA Button */}
-            <div className="mb-12">
-              <button className="bg-primary text-black px-16 py-6 font-black text-sm tracking-[0.3em] uppercase hover:bg-white transition-all duration-300">
-                {t.CTA.button_main}
-              </button>
-            </div>
-
-            {/* Scarcity Disclaimer */}
-            <p className="text-[9px] font-bold tracking-[0.3em] text-neutral-600 uppercase">
-              {t.CTA.disclaimer}
-            </p>
-          </div>
-        </section>
+        {/* Strategic Consultation - High Impact Scroll Reveal */}
+        <div id="cta">
+          <CTARevealSection t={t.CTA} />
+        </div>
 
         {/* Contact Section - High Conversion Technical Form */}
         <section id="contact" className="py-32 bg-background relative z-10 border-t border-white/5">

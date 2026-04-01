@@ -176,14 +176,13 @@
     },
     "CTA": {
         "badge": "CONSULTA ESTRATÉGICA",
-        "headline": "TRANSFORME SUA <br/>VISAO EM UMA <br/>MAQUINA DE <span class='text-primary'>RESULTADOS</span>",
+        "headline": "TRANSFORME SUA <br/>VISÃO EM UMA MÁQUINA <br/>DE <span class='text-primary'>RESULTADOS</span>",
         "headline_lines": [
             "TRANSFORME SUA",
-            "VISAO EM UMA",
-            "MAQUINA DE",
-            "RESULTADOS"
+            "VISÃO EM UMA MÁQUINA",
+            "DE RESULTADOS"
         ],
-        "headline_accent_line": 3,
+        "headline_accent_line": 2,
         "button_main": "AGENDAR CONSULTA DE ALTO IMPACTO",
         "disclaimer": "DISPONIBILIDADE LIMITADA: 2 NOVAS PARCERIAS POR TRIMESTRE."
     },

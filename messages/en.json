@@ -176,14 +176,13 @@
     },
     "CTA": {
         "badge": "STRATEGIC CONSULTATION",
-        "headline": "TURN YOUR <br/>VISION INTO A <br/>REVENUE <span class='text-primary'>ENGINE</span>",
+        "headline": "TURN YOUR <br/>VISION INTO A REVENUE <br/><span class='text-primary'>ENGINE</span>",
         "headline_lines": [
             "TURN YOUR",
-            "VISION INTO A",
-            "REVENUE",
+            "VISION INTO A REVENUE",
             "ENGINE"
         ],
-        "headline_accent_line": 3,
+        "headline_accent_line": 2,
         "button_main": "SCHEDULE HIGH-IMPACT CONSULTATION",
         "disclaimer": "LIMITED AVAILABILITY: 2 NEW PARTNERSHIPS PER QUARTER."
     },
