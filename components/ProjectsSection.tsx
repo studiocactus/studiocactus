@@ -16,6 +16,7 @@ interface Project {
     stat2_label: string;
     image: string;
     tags: string[];
+    href?: string;
 }
 
 export default function ProjectsSection({ t }: { t: any }) {
@@ -33,7 +34,8 @@ export default function ProjectsSection({ t }: { t: any }) {
             stat1_val: "400%", stat1_label: t.CaseStudies.case1?.stat1_label || "GROWTH",
             stat2_val: "60%", stat2_label: t.CaseStudies.case1?.stat2_label || "OPEX",
             image: "/jobs/1.png",
-            tags: ["PERFORMANCE", "UI/UX", "SYSTEM"]
+            tags: ["PERFORMANCE", "UI/UX", "SYSTEM"],
+            href: "https://ayupilates.com.br"
         },
         {
             id: "tech2", category: "TECH", index: "02",
@@ -173,12 +175,12 @@ function ProjectItem({ project, t }: { project: Project, t: any }) {
             className="group relative border-b border-white/5 overflow-hidden transition-colors duration-500 hover:bg-white/[0.02]"
         >
             {/* Minimal State (Row) */}
-            <div className="flex flex-col md:flex-row items-start md:items-center justify-between py-6 md:py-10 px-4 md:px-0 transition-all duration-500 gap-4 md:gap-0 cursor-pointer">
-                <div className="flex items-center gap-4 md:gap-16">
-                    <span className="font-headline text-xl md:text-2xl font-black text-white/5 group-hover:text-primary/40 transition-colors duration-500">
+            <div className="flex flex-col md:flex-row items-start md:items-center justify-between py-6 md:py-10 px-4 md:px-0 transition-all duration-500 gap-4 md:gap-0">
+                <div className="flex items-center gap-4 md:gap-16 group-hover:translate-x-8 transition-transform duration-700 ease-out">
+                    <span className="font-headline text-xl md:text-5xl font-black text-white/5 group-hover:text-primary transition-colors duration-500">
                         {project.index}
                     </span>
-                    <h3 className="font-headline text-2xl md:text-5xl font-bold uppercase tracking-tighter text-white group-hover:translate-x-4 transition-transform duration-700 ease-out">
+                    <h3 className="font-headline text-2xl md:text-5xl font-bold uppercase tracking-tighter text-white transition-all duration-700 ease-out">
                         {project.title}
                     </h3>
                 </div>
@@ -188,8 +190,16 @@ function ProjectItem({ project, t }: { project: Project, t: any }) {
                         <span className="font-label text-[10px] tracking-[0.2em] text-primary">{project.category}</span>
                         <span className="font-label text-[10px] tracking-[0.2em] text-neutral-500 uppercase">{project.tags[0]}</span>
                     </div>
-                    <div className="hidden lg:flex w-12 h-12 border border-white/10 items-center justify-center group-hover:bg-primary group-hover:border-primary group-hover:text-black transition-all duration-500">
-                        <span className="material-symbols-outlined text-sm rotate-[-45deg] group-hover:rotate-0 transition-transform duration-500">arrow_forward</span>
+                    <div className={`hidden lg:flex w-12 h-12 border items-center justify-center transition-all duration-500 ${project.href
+                        ? "bg-primary border-primary text-black"
+                        : "opacity-20 grayscale border-white/10 text-neutral-500"
+                        }`}>
+                        <span className={`material-symbols-outlined text-sm transition-transform duration-500 ${project.href
+                                ? "rotate-[-45deg] group-hover:rotate-0"
+                                : "rotate-0"
+                            }`}>
+                            {project.href ? "arrow_forward" : "lock"}
+                        </span>
                     </div>
                 </div>
             </div>
@@ -218,13 +228,13 @@ function ProjectItem({ project, t }: { project: Project, t: any }) {
 
                         {/* Floating Stats on Image - Adjusted for mobile breath */}
                         <div className="md:absolute bottom-8 right-8 flex gap-2 md:gap-8 flex-row justify-end p-4 md:p-0">
-                            <div className="bg-black/90 backdrop-blur-md p-2 md:p-4 border border-white/10 flex-1 md:flex-initial md:min-w-[120px] shadow-2xl">
+                            <div className="flex-1 md:flex-initial md:min-w-[120px]">
                                 <div className="text-sm md:text-xl font-bold text-primary">{project.stat1_val}</div>
-                                <div className="text-[8px] md:text-[9px] text-neutral-400 uppercase tracking-widest">{project.stat1_label}</div>
+                                <div className="text-[8px] md:text-[9px] text-neutral-400 uppercase tracking-widest leading-none mt-1">{project.stat1_label}</div>
                             </div>
-                            <div className="bg-black/90 backdrop-blur-md p-2 md:p-4 border border-white/10 flex-1 md:flex-initial md:min-w-[120px] shadow-2xl">
+                            <div className="flex-1 md:flex-initial md:min-w-[120px]">
                                 <div className="text-sm md:text-xl font-bold text-primary">{project.stat2_val}</div>
-                                <div className="text-[8px] md:text-[9px] text-neutral-400 uppercase tracking-widest">{project.stat2_label}</div>
+                                <div className="text-[8px] md:text-[9px] text-neutral-400 uppercase tracking-widest leading-none mt-1">{project.stat2_label}</div>
                             </div>
                         </div>
                     </div>
@@ -242,7 +252,7 @@ function ProjectItem({ project, t }: { project: Project, t: any }) {
 
                         <div className="flex flex-wrap gap-x-6 gap-y-2">
                             {project.tags.map((tag: string) => (
-                                <span key={tag} className="text-[10px] text-neutral-600 font-black tracking-[0.2em] uppercase border-b border-white/10 pb-1">
+                                <span key={tag} className="text-[10px] text-primary font-black tracking-[0.2em] uppercase border-b border-primary/20 pb-1">
                                     #{tag}
                                 </span>
                             ))}
