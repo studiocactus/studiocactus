@@ -19,20 +19,9 @@ interface Project {
 
 export default function ProjectsSection({ t }: { t: any }) {
     const [activeCategory, setActiveCategory] = useState("ALL");
-    const [currentIndex, setCurrentIndex] = useState(0);
-    const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
-    const [isHovering, setIsHovering] = useState(false);
 
     // Safeguard
     if (!t.CaseStudies) return <div className="py-20 text-center text-white/20 uppercase tracking-widest">[ ENGINE OFFLINE / DATA ERROR ]</div>;
-
-    useEffect(() => {
-        const handleMouseMove = (e: MouseEvent) => {
-            setMousePos({ x: e.clientX, y: e.clientY });
-        };
-        window.addEventListener("mousemove", handleMouseMove);
-        return () => window.removeEventListener("mousemove", handleMouseMove);
-    }, []);
 
     const allProjects: Project[] = [
         // TECH Projects (4)
@@ -103,7 +92,6 @@ export default function ProjectsSection({ t }: { t: any }) {
         }
     ];
 
-    // Dynamic Logic for Filters
     const techCount = allProjects.filter(p => p.category === "TECH").length;
     const designCount = allProjects.filter(p => p.category === "DESIGN").length;
     const totalCount = allProjects.length;
@@ -112,26 +100,6 @@ export default function ProjectsSection({ t }: { t: any }) {
         ? allProjects
         : allProjects.filter(p => p.category === activeCategory);
 
-    useEffect(() => {
-        setCurrentIndex(0);
-    }, [activeCategory]);
-
-    const nextProject = () => {
-        setCurrentIndex((prev) => (prev + 1) % filteredProjects.length);
-    };
-
-    const prevProject = () => {
-        setCurrentIndex((prev) => (prev - 1 + filteredProjects.length) % filteredProjects.length);
-    };
-
-    const currentProject = filteredProjects[currentIndex] || allProjects[0];
-
-    const getDisplayIndex = () => {
-        const index = currentIndex + 1;
-        const total = filteredProjects.length;
-        return `[0${index}] / [0${total}]`;
-    };
-
     const filterOptions = [
         { label: "ALL", count: totalCount },
         { label: "TECH", count: techCount },
@@ -139,15 +107,15 @@ export default function ProjectsSection({ t }: { t: any }) {
     ];
 
     return (
-        <section id="projects" className="py-24 bg-[#141414] relative overflow-hidden transition-colors duration-700">
+        <section id="projects" className="py-24 bg-[#141414] relative overflow-hidden">
             <div className="max-w-7xl mx-auto px-6 md:px-8">
 
                 {/* Technical Index Header */}
                 <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-8 md:gap-12 mb-12 md:mb-24">
                     <div className="max-w-2xl">
-                        <div className="inline-flex items-center gap-3 px-4 py-2 border border-white/10 bg-white/5 mb-8">
-                            <div className="w-2 h-2 bg-primary animate-pulse" />
-                            <span className="font-label text-xs uppercase tracking-[0.2em] text-on-surface-variant leading-none">{t.CaseStudies?.label || "PROJETOS SELECIONADOS"}</span>
+                        <div className="inline-flex items-center gap-3 px-4 py-2 bg-white/5 border border-white/10 mb-8">
+                            <div className="w-2 h-2 bg-primary rounded-full animate-pulse" />
+                            <span className="text-[10px] font-black tracking-[0.3em] text-neutral-400 uppercase leading-none">{t.CaseStudies?.label || "PROJETOS SELECIONADOS"}</span>
                         </div>
                         <h2 className="font-headline text-4xl md:text-6xl font-bold tracking-tight uppercase text-white"
                             dangerouslySetInnerHTML={{ __html: t.CaseStudies?.headline || "ESTUDOS DE CASO" }} />
@@ -169,127 +137,116 @@ export default function ProjectsSection({ t }: { t: any }) {
                     </nav>
                 </div>
 
-                <div className="relative min-h-0 lg:min-h-[700px]">
-                    <AnimatePresence mode="wait">
-                        <motion.div
-                            key={currentProject.id}
-                            initial={{ opacity: 0, x: 20 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            exit={{ opacity: 0, x: -20 }}
-                            transition={{ duration: 0.5, ease: "circOut" }}
-                            className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center"
-                            drag="x"
-                            dragConstraints={{ left: 0, right: 0 }}
-                            onDragEnd={(e, info) => {
-                                if (info.offset.x > 100) prevProject();
-                                else if (info.offset.x < -100) nextProject();
-                            }}
-                        >
-                            <div className="lg:col-span-4 space-y-10 order-2 lg:order-1">
-                                <div className="space-y-4">
-                                    <div className="text-primary font-bold tracking-widest text-[10px]">
-                                        {getDisplayIndex()} PROJECT / {currentProject.category}
-                                    </div>
-                                    <h3 className="font-headline text-3xl md:text-4xl font-bold uppercase tracking-tighter text-white">
-                                        {currentProject.title}
-                                    </h3>
-                                    <p className="font-body text-neutral-400 leading-relaxed">
-                                        {currentProject.description}
-                                    </p>
-                                </div>
-
-                                <div className="grid grid-cols-2 gap-8 border-y border-white/5 py-10">
-                                    <div>
-                                        <div className="text-2xl font-bold text-white mb-1">{currentProject.stat1_val}</div>
-                                        <div className="text-[10px] text-primary uppercase tracking-widest leading-tight">{currentProject.stat1_label}</div>
-                                    </div>
-                                    <div>
-                                        <div className="text-2xl font-bold text-white mb-1">{currentProject.stat2_val}</div>
-                                        <div className="text-[10px] text-primary uppercase tracking-widest leading-tight">{currentProject.stat2_label}</div>
-                                    </div>
-                                </div>
-
-                                <div className="flex flex-wrap gap-3">
-                                    {currentProject.tags.map(tag => (
-                                        <span key={tag} className="px-3 py-1 bg-white/5 border border-white/10 text-[9px] text-neutral-400 font-bold tracking-tighter uppercase">
-                                            {tag}
-                                        </span>
-                                    ))}
-                                </div>
-
-                                <button className="flex items-center gap-4 group mt-4">
-                                    <span className="w-12 h-12 bg-primary text-black flex items-center justify-center hover:bg-white transition-all duration-500">
-                                        <span className="material-symbols-outlined text-sm">arrow_outward</span>
-                                    </span>
-                                    <span className="font-label text-[10px] tracking-[0.2em] uppercase font-bold text-primary group-hover:text-white transition-colors">
-                                        {t.CaseStudies.case1?.cta || "EXPLORAR"}
-                                    </span>
-                                </button>
-                            </div>
-
-                            <div
-                                className="lg:col-span-8 order-1 lg:order-2 cursor-none relative group/container"
-                                onMouseEnter={() => setIsHovering(true)}
-                                onMouseLeave={() => setIsHovering(false)}
-                            >
-                                {/* Side Navigation Overlay Buttons */}
-                                <div className="absolute inset-y-0 left-0 w-24 flex items-center justify-center z-40 opacity-0 group-hover/container:opacity-100 transition-opacity">
-                                    <button
-                                        onClick={prevProject}
-                                        className="w-12 h-12 rounded-full border border-primary text-primary bg-black/40 backdrop-blur-md flex items-center justify-center hover:bg-primary hover:text-black transition-all pointer-events-auto"
-                                    >
-                                        <span className="material-symbols-outlined text-sm">chevron_left</span>
-                                    </button>
-                                </div>
-                                <div className="absolute inset-y-0 right-0 w-24 flex items-center justify-center z-40 opacity-0 group-hover/container:opacity-100 transition-opacity">
-                                    <button
-                                        onClick={nextProject}
-                                        className="w-12 h-12 rounded-full border border-primary text-primary bg-black/40 backdrop-blur-md flex items-center justify-center hover:bg-primary hover:text-black transition-all pointer-events-auto"
-                                    >
-                                        <span className="material-symbols-outlined text-sm">chevron_right</span>
-                                    </button>
-                                </div>
-
-                                <div className="bg-neutral-900 border border-white/10 shadow-[0_50px_100px_rgba(0,0,0,0.5)] overflow-hidden group relative">
-                                    <div className="h-10 border-b border-white/5 bg-[#1a1a1a] flex items-center px-4 justify-between">
-                                        <div className="flex gap-2">
-                                            <div className="w-2.5 h-2.5 rounded-full bg-red-500/50" />
-                                            <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/50" />
-                                            <div className="w-2.5 h-2.5 rounded-full bg-green-500/50" />
-                                        </div>
-                                        <div className="bg-black/20 px-6 py-1 rounded text-[8px] text-neutral-600 font-mono tracking-tight lowercase">
-                                            studiocactus.com/work/projects
-                                        </div>
-                                    </div>
-                                    <div className="relative aspect-[16/10] overflow-hidden grayscale group-hover:grayscale-0 transition-all duration-700">
-                                        <img
-                                            src={currentProject.image}
-                                            alt={currentProject.title}
-                                            className="w-full h-full object-cover scale-105 group-hover:scale-100 transition-transform duration-1000 pointer-events-none"
-                                        />
-                                    </div>
-                                </div>
-                            </div>
-                        </motion.div>
+                {/* Technical Expanding Archives Grid */}
+                <div className="flex flex-col border-t border-white/5">
+                    <AnimatePresence mode="popLayout">
+                        {filteredProjects.map((project) => (
+                            <ProjectItem key={project.id} project={project} t={t} />
+                        ))}
                     </AnimatePresence>
-
-                    {/* Custom Floating Cursor (Pill Only) */}
-                    <motion.div
-                        className="fixed pointer-events-none z-[100] hidden lg:block"
-                        animate={{
-                            x: mousePos.x - 35,
-                            y: mousePos.y - 15,
-                            opacity: isHovering ? 1 : 0,
-                            scale: isHovering ? 1 : 0.5
-                        }}
-                        transition={{ type: "spring", damping: 30, stiffness: 300, mass: 0.5 }}
-                    >
-                        <div className="px-5 py-2 bg-primary rounded-full text-black font-headline text-[8px] font-black tracking-[0.2em] uppercase shadow-[0_10px_30px_rgba(174,213,0,0.3)] border border-primary/50">
-                            DRAG
-                        </div>
-                    </motion.div>
                 </div>
             </div>
         </section>
+    );
+}
+
+function ProjectItem({ project, t }: { project: Project, t: any }) {
+    const [isHovered, setIsHovered] = useState(false);
+
+    return (
+        <motion.div
+            layout
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+            className="group relative border-b border-white/5 overflow-hidden transition-colors duration-500 hover:bg-white/[0.02]"
+        >
+            {/* Minimal State (Row) */}
+            <div className="flex flex-col md:flex-row items-start md:items-center justify-between py-10 px-4 md:px-0 transition-all duration-500 gap-6 md:gap-0 cursor-pointer">
+                <div className="flex items-center gap-8 md:gap-16">
+                    <span className="font-headline text-2xl font-black text-white/5 group-hover:text-primary/40 transition-colors duration-500">
+                        {project.index}
+                    </span>
+                    <h3 className="font-headline text-2xl md:text-5xl font-bold uppercase tracking-tighter text-white group-hover:translate-x-4 transition-transform duration-700 ease-out">
+                        {project.title}
+                    </h3>
+                </div>
+
+                <div className="flex items-center gap-10">
+                    <div className="hidden md:flex flex-col items-end opacity-40 group-hover:opacity-100 transition-opacity duration-500">
+                        <span className="font-label text-[10px] tracking-[0.2em] text-primary">{project.category}</span>
+                        <span className="font-label text-[10px] tracking-[0.2em] text-neutral-500 uppercase">{project.tags[0]}</span>
+                    </div>
+                    <div className="w-12 h-12 border border-white/10 flex items-center justify-center group-hover:bg-primary group-hover:border-primary group-hover:text-black transition-all duration-500">
+                        <span className="material-symbols-outlined text-sm rotate-[-45deg] group-hover:rotate-0 transition-transform duration-500">arrow_forward</span>
+                    </div>
+                </div>
+            </div>
+
+            {/* Expanded Content (Accordion) */}
+            <motion.div
+                initial={false}
+                animate={{
+                    height: isHovered ? "auto" : 0,
+                    opacity: isHovered ? 1 : 0
+                }}
+                transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                className="overflow-hidden"
+            >
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 pb-20 pt-4 px-4 md:px-12">
+                    {/* Visual Portal */}
+                    <div className="lg:col-span-7 relative aspect-[16/9] overflow-hidden grayscale hover:grayscale-0 transition-all duration-1000 bg-neutral-900 border border-white/5">
+                        <motion.img
+                            animate={{ scale: isHovered ? 1 : 1.15 }}
+                            transition={{ duration: 1.5, ease: "easeOut" }}
+                            src={project.image}
+                            alt={project.title}
+                            className="w-full h-full object-cover"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent pointer-events-none" />
+
+                        {/* Floating Stats on Image - Adjusted for mobile breath */}
+                        <div className="md:absolute bottom-8 right-8 flex gap-4 md:gap-8 flex-wrap justify-end p-4 md:p-0">
+                            <div className="bg-black/90 backdrop-blur-md p-3 md:p-4 border border-white/10 flex-1 md:flex-initial md:min-w-[120px] shadow-2xl">
+                                <div className="text-lg md:text-xl font-bold text-primary">{project.stat1_val}</div>
+                                <div className="text-[9px] text-neutral-400 uppercase tracking-widest">{project.stat1_label}</div>
+                            </div>
+                            <div className="bg-black/90 backdrop-blur-md p-3 md:p-4 border border-white/10 flex-1 md:flex-initial md:min-w-[120px] shadow-2xl">
+                                <div className="text-lg md:text-xl font-bold text-primary">{project.stat2_val}</div>
+                                <div className="text-[9px] text-neutral-400 uppercase tracking-widest">{project.stat2_label}</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Metadata Recap */}
+                    <div className="lg:col-span-5 flex flex-col justify-center space-y-8">
+                        <div className="space-y-4">
+                            <div className="inline-block px-3 py-1 border border-primary/20 bg-primary/5 text-primary text-[10px] font-bold tracking-widest uppercase mb-4">
+                                PROJECT SPECIFICATIONS
+                            </div>
+                            <p className="font-body text-neutral-400 text-lg md:text-xl leading-relaxed uppercase tracking-tight">
+                                {project.description}
+                            </p>
+                        </div>
+
+                        <div className="flex flex-wrap gap-x-6 gap-y-2">
+                            {project.tags.map((tag: string) => (
+                                <span key={tag} className="text-[10px] text-neutral-600 font-black tracking-[0.2em] uppercase border-b border-white/10 pb-1">
+                                    #{tag}
+                                </span>
+                            ))}
+                        </div>
+
+                        <button className="flex items-center gap-4 group/btn w-fit pt-8 translate-y-4 opacity-0 animate-in fade-in slide-in-from-bottom-4 duration-700 fill-mode-forwards delay-300">
+                            <div className="relative overflow-hidden bg-white text-black px-10 py-5 font-bold text-[10px] tracking-widest uppercase transition-all group-hover/btn:bg-primary group-hover/btn:px-12">
+                                <span className="relative z-10">{t.CaseStudies.case1?.cta || "VIEW CASE STUDY"}</span>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+            </motion.div>
+        </motion.div>
     );
 }

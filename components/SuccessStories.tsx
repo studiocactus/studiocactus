@@ -48,9 +48,9 @@ export default function SuccessStories({ t }: SuccessStoriesProps) {
 
                 {/* Left Side: Standardized Header (5 cols) */}
                 <div className="lg:col-span-5 lg:sticky lg:top-40 z-20">
-                    <div className="inline-flex items-center gap-3 px-4 py-2 border border-white/10 bg-white/5 mb-8">
-                        <div className="w-2 h-2 bg-primary animate-pulse" />
-                        <span className="font-label text-xs uppercase tracking-[0.2em] text-on-surface-variant leading-none">{t.Testimonials?.badge || "DEPOIMENTOS"}</span>
+                    <div className="inline-flex items-center gap-3 px-4 py-2 bg-white/5 border border-white/10 mb-8">
+                        <div className="w-2 h-2 bg-primary rounded-full animate-pulse" />
+                        <span className="text-[10px] font-black tracking-[0.3em] text-neutral-400 uppercase leading-none">{t.Testimonials?.badge || "DEPOIMENTOS"}</span>
                     </div>
 
                     <h2 className="font-headline text-4xl md:text-6xl font-bold tracking-tight uppercase text-white mb-16"

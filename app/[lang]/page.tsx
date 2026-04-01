@@ -12,6 +12,7 @@ import DictionarySwitcher from "@/components/DictionarySwitcher";
 import ScrollToTop from "@/components/ScrollToTop";
 import ContactForm from "@/components/ContactForm";
 import IdleWhatsApp from "@/components/IdleWhatsApp";
+import Navbar from "@/components/Navbar";
 
 export default async function Home({
   params,
@@ -23,24 +24,7 @@ export default async function Home({
 
   return (
     <div className="bg-background text-on-surface selection:bg-primary selection:text-on-primary">
-      <nav className="fixed top-0 left-0 w-full z-50 bg-background/80 backdrop-blur-md border-b border-white/5 h-20">
-        <div className="max-w-7xl mx-auto px-8 h-full flex items-center justify-between">
-          <div className="text-2xl font-bold tracking-tighter text-white">STUDIOCACTUS</div>
-          <div className="hidden md:flex gap-12 font-label text-[10px] tracking-[0.3em] text-neutral-400 uppercase">
-            <a href="#services" className="hover:text-primary transition-colors">{t.Navigation.services}</a>
-            <a href="#work" className="hover:text-primary transition-colors">{t.Navigation.work}</a>
-            <a href="#tech" className="hover:text-primary transition-colors">{t.Navigation.tech}</a>
-            <a href="#about" className="hover:text-primary transition-colors">{t.Navigation.about}</a>
-            <a href="#contact" className="hover:text-primary transition-colors">{t.Navigation.contact}</a>
-          </div>
-          <div className="flex items-center gap-8">
-            <DictionarySwitcher currentLocale={lang as Locale} />
-            <button className="bg-primary text-black px-6 py-2 font-bold text-[10px] tracking-[0.2em] uppercase hover:bg-white transition-all">
-              {t.Navigation.start_project}
-            </button>
-          </div>
-        </div>
-      </nav>
+      <Navbar t={t} lang={lang as Locale} />
 
       <main>
         {/* HERO - Ultra Modern Digital Architecture */}
@@ -48,13 +32,13 @@ export default async function Home({
           <InteractiveWaves />
           <div className="max-w-7xl mx-auto px-8 relative z-10 w-full">
             <div className="max-w-4xl">
-              <div className="inline-flex items-center gap-3 px-4 py-2 border border-white/5 bg-white/5 mb-12">
-                <div className="w-2 h-2 bg-primary animate-pulse" />
-                <span className="font-label text-xs uppercase tracking-[0.25em] text-neutral-400 leading-none">{t.Hero.badge}</span>
+              <div className="inline-flex items-center gap-3 px-4 py-2 bg-white/5 border border-white/10 mb-8 md:mb-12">
+                <div className="w-2 h-2 bg-primary rounded-full animate-pulse" />
+                <span className="text-[10px] font-black tracking-[0.3em] text-neutral-400 uppercase leading-none">{t.Hero.badge}</span>
               </div>
 
               {/* Refined Headline with Flip-Box Effect on High-Impact Words */}
-              <h1 className="font-headline text-[10vw] md:text-[5vw] font-black leading-[0.95] tracking-tighter uppercase mb-16 text-white overflow-hidden">
+              <h1 className="font-headline text-5xl md:text-[5vw] font-black leading-[0.95] tracking-tighter uppercase mb-12 md:mb-16 text-white overflow-hidden">
                 {lang === 'en' ? (
                   <>
                     STOP <span className="text-primary"><FlipWord text="EXISTING" /></span>. <br />
@@ -72,21 +56,23 @@ export default async function Home({
                 {t.Hero.description}
               </p>
 
-              <div className="mt-20 flex flex-wrap gap-6">
-                <button className="group relative overflow-hidden bg-white text-black px-12 py-6 font-bold text-base tracking-widest transition-all">
+              <div className="mt-20 md:mt-28 flex flex-col sm:flex-row gap-4 w-full max-w-sm md:max-w-none">
+                <button className="flex-1 group relative overflow-hidden bg-white text-black px-12 py-6 font-bold text-xs md:text-base tracking-[0.3em] transition-all w-full">
                   <span className="relative z-10 uppercase">{t.Hero.cta_primary}</span>
                   <div className="absolute inset-0 bg-primary translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
                 </button>
 
-                <button className="group relative border-2 border-primary text-primary px-12 py-6 font-bold text-base tracking-widest transition-all hover:bg-primary hover:text-black">
+                <button className="flex-1 group relative border-2 border-primary text-primary px-12 py-6 font-bold text-xs md:text-base tracking-[0.3em] transition-all hover:bg-primary hover:text-black w-full">
                   <span className="uppercase">{t.Hero.cta_secondary}</span>
                 </button>
               </div>
             </div>
           </div>
 
-          <div className="absolute bottom-20 right-8 flex flex-col items-end gap-2 font-label text-[10px] tracking-[0.5em] text-neutral-700 writing-vertical uppercase">
-            <span>scroll [ down ] to dive</span>
+          <div className="absolute bottom-8 left-0 w-full flex items-center justify-between px-8 gap-6 font-label text-[10px] tracking-[0.4em] text-neutral-800 uppercase pointer-events-none">
+            <div className="flex-1 h-[1px] bg-white/10" />
+            <span className="whitespace-nowrap">scroll [ down ] to dive</span>
+            <div className="flex-1 h-[1px] bg-white/10" />
           </div>
         </section>
 
@@ -99,29 +85,29 @@ export default async function Home({
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-24 items-start">
                 <div className="lg:col-span-12">
                   <div className="max-w-4xl">
-                    <div className="inline-flex items-center gap-3 px-4 py-2 border border-white/10 bg-white/5 mb-8">
-                      <div className="w-2 h-2 bg-primary animate-pulse" />
-                      <span className="font-label text-xs uppercase tracking-[0.2em] text-neutral-400 leading-none">{t.Capabilities.label}</span>
+                    <div className="inline-flex items-center gap-3 px-4 py-2 bg-white/5 border border-white/10 mb-8">
+                      <div className="w-2 h-2 bg-primary rounded-full animate-pulse" />
+                      <span className="text-[10px] font-black tracking-[0.3em] text-neutral-400 uppercase leading-none">{t.Capabilities.label}</span>
                     </div>
                     <h2 className="font-headline text-4xl md:text-6xl font-bold tracking-tight uppercase leading-none text-white mb-12"
                       dangerouslySetInnerHTML={{ __html: t.Capabilities.headline }} />
                   </div>
                 </div>
 
-                <div className="lg:col-span-12 flex flex-col gap-[1px] bg-white/5 p-[1px]">
+                <div className="lg:col-span-12 flex flex-col gap-4 lg:gap-px bg-transparent lg:bg-white/5">
 
                   {/* First Row: 01-03 */}
-                  <div className="flex flex-col lg:flex-row gap-[1px] h-[300px]">
+                  <div className="flex flex-col lg:flex-row gap-4 lg:gap-px h-auto lg:h-[300px]">
                     {/* 01: Tech Partner */}
-                    <div className="flex-1 bg-background p-8 group hover:flex-[2.5] hover:bg-primary transition-all duration-700 ease-in-out relative overflow-hidden border border-white/5 lg:border-none">
+                    <div className="bg-background lg:flex-1 p-8 group hover:lg:flex-[2.5] hover:bg-primary transition-all duration-700 ease-in-out relative overflow-hidden border border-white/5 lg:border-none">
                       <div className="relative z-10 flex flex-col h-full justify-between">
                         <div>
                           <div className="flex justify-between items-start mb-6">
                             <div className="text-4xl font-black text-white/5 group-hover:text-black/10 transition-colors leading-none font-headline">01</div>
-                            <div className="px-2 py-0.5 border border-white/10 bg-white/5 text-[7px] text-neutral-500 font-black tracking-widest uppercase group-hover:border-black/20 group-hover:text-black/40">ASSINATURA MENSAL</div>
+                            <div className="px-2 py-0.5 border border-white/10 bg-white/5 text-[9px] text-neutral-500 font-black tracking-widest uppercase group-hover:border-black/20 group-hover:text-black/40">ASSINATURA MENSAL</div>
                           </div>
-                          <h3 className="text-xl md:text-2xl font-bold text-white group-hover:text-black uppercase mb-4 transition-colors">{t.Capabilities.tech_partner.title}</h3>
-                          <p className="text-neutral-500 group-hover:text-black font-body uppercase leading-relaxed text-[11px] tracking-tight max-w-[280px] opacity-60 group-hover:opacity-100 transition-opacity">
+                          <h3 className="text-xl md:text-2xl font-bold text-white group-hover:text-black uppercase mb-4 transition-colors leading-tight">{t.Capabilities.tech_partner.title}</h3>
+                          <p className="text-neutral-500 group-hover:text-black font-body uppercase leading-relaxed text-[12px] tracking-tight max-w-full opacity-60 group-hover:opacity-100 transition-opacity">
                             {t.Capabilities.tech_partner.description}
                           </p>
                         </div>
@@ -135,15 +121,15 @@ export default async function Home({
                     </div>
 
                     {/* 02: Web Apps */}
-                    <div className="flex-1 bg-background p-8 group hover:flex-[2.5] hover:bg-primary transition-all duration-700 ease-in-out relative overflow-hidden border border-white/5 lg:border-none">
+                    <div className="bg-background lg:flex-1 p-8 group hover:lg:flex-[2.5] hover:bg-primary transition-all duration-700 ease-in-out relative overflow-hidden border border-white/5 lg:border-none">
                       <div className="relative z-10 flex flex-col h-full justify-between">
                         <div>
                           <div className="flex justify-between items-start mb-6">
                             <div className="text-4xl font-black text-white/5 group-hover:text-black/10 transition-colors leading-none font-headline">02</div>
-                            <div className="px-2 py-0.5 border border-primary/20 bg-primary/5 text-[7px] text-primary font-black tracking-widest uppercase group-hover:border-black/20 group-hover:text-black/60">DISPONÍVEL</div>
+                            <div className="px-2 py-0.5 border border-primary/20 bg-primary/5 text-[9px] text-primary font-black tracking-widest uppercase group-hover:border-black/20 group-hover:text-black/60">DISPONÍVEL</div>
                           </div>
-                          <h3 className="text-xl md:text-2xl font-bold text-white group-hover:text-black uppercase mb-4 transition-colors">{t.Capabilities.web_apps.title}</h3>
-                          <p className="text-neutral-500 group-hover:text-black font-body uppercase leading-relaxed text-[11px] tracking-tight max-w-[280px] opacity-60 group-hover:opacity-100 transition-opacity">
+                          <h3 className="text-xl md:text-2xl font-bold text-white group-hover:text-black uppercase mb-4 transition-colors leading-tight">{t.Capabilities.web_apps.title}</h3>
+                          <p className="text-neutral-500 group-hover:text-black font-body uppercase leading-relaxed text-[12px] tracking-tight max-w-full opacity-60 group-hover:opacity-100 transition-opacity">
                             {t.Capabilities.web_apps.description}
                           </p>
                         </div>
@@ -157,15 +143,15 @@ export default async function Home({
                     </div>
 
                     {/* 03: Data Integration */}
-                    <div className="flex-1 bg-background p-8 group hover:flex-[2.5] hover:bg-primary transition-all duration-700 ease-in-out relative overflow-hidden border border-white/5 lg:border-none">
+                    <div className="bg-background lg:flex-1 p-8 group hover:lg:flex-[2.5] hover:bg-primary transition-all duration-700 ease-in-out relative overflow-hidden border border-white/5 lg:border-none">
                       <div className="relative z-10 flex flex-col h-full justify-between">
                         <div>
                           <div className="flex justify-between items-start mb-6">
                             <div className="text-4xl font-black text-white/5 group-hover:text-black/10 transition-colors leading-none font-headline">03</div>
-                            <div className="px-2 py-0.5 border border-yellow-500/20 bg-yellow-500/5 text-[7px] text-yellow-500 font-black tracking-widest uppercase group-hover:border-black/20 group-hover:text-black/60">EM DESENVOLVIMENTO</div>
+                            <div className="px-2 py-0.5 border border-yellow-500/20 bg-yellow-500/5 text-[9px] text-yellow-500 font-black tracking-widest uppercase group-hover:border-black/20 group-hover:text-black/60">EM DESENVOLVIMENTO</div>
                           </div>
-                          <h3 className="text-xl md:text-2xl font-bold text-white group-hover:text-black uppercase mb-4 transition-colors">{t.Capabilities.data_integration.title}</h3>
-                          <p className="text-neutral-500 group-hover:text-black font-body uppercase leading-relaxed text-[11px] tracking-tight max-w-[280px] opacity-60 group-hover:opacity-100 transition-opacity">
+                          <h3 className="text-xl md:text-2xl font-bold text-white group-hover:text-black uppercase mb-4 transition-colors leading-tight">{t.Capabilities.data_integration.title}</h3>
+                          <p className="text-neutral-500 group-hover:text-black font-body uppercase leading-relaxed text-[12px] tracking-tight max-w-full opacity-60 group-hover:opacity-100 transition-opacity">
                             {t.Capabilities.data_integration.description}
                           </p>
                         </div>
@@ -180,17 +166,17 @@ export default async function Home({
                   </div>
 
                   {/* Second Row: 04-06 */}
-                  <div className="flex flex-col lg:flex-row gap-[1px] h-[300px]">
+                  <div className="flex flex-col lg:flex-row gap-4 lg:gap-px h-auto lg:h-[300px]">
                     {/* 04: Digital Platforms */}
-                    <div className="flex-1 bg-background p-8 group hover:flex-[2.5] hover:bg-primary transition-all duration-700 ease-in-out relative overflow-hidden border border-white/5 lg:border-none">
+                    <div className="bg-background lg:flex-1 p-8 group hover:lg:flex-[2.5] hover:bg-primary transition-all duration-700 ease-in-out relative overflow-hidden border border-white/5 lg:border-none">
                       <div className="relative z-10 flex flex-col h-full justify-between">
                         <div>
                           <div className="flex justify-between items-start mb-6">
                             <div className="text-4xl font-black text-white/5 group-hover:text-black/10 transition-colors leading-none font-headline">04</div>
-                            <div className="px-2 py-0.5 border border-primary/20 bg-primary/5 text-[7px] text-primary font-black tracking-widest uppercase group-hover:border-black/20 group-hover:text-black/60">DISPONÍVEL</div>
+                            <div className="px-2 py-0.5 border border-primary/20 bg-primary/5 text-[9px] text-primary font-black tracking-widest uppercase group-hover:border-black/20 group-hover:text-black/60">DISPONÍVEL</div>
                           </div>
-                          <h3 className="text-xl md:text-2xl font-bold text-white group-hover:text-black uppercase mb-4 transition-colors">{t.Capabilities.digital_platforms.title}</h3>
-                          <p className="text-neutral-500 group-hover:text-black font-body uppercase leading-relaxed text-[11px] tracking-tight max-w-[280px] opacity-60 group-hover:opacity-100 transition-opacity">
+                          <h3 className="text-xl md:text-2xl font-bold text-white group-hover:text-black uppercase mb-4 transition-colors leading-tight">{t.Capabilities.digital_platforms.title}</h3>
+                          <p className="text-neutral-500 group-hover:text-black font-body uppercase leading-relaxed text-[12px] tracking-tight max-w-full opacity-60 group-hover:opacity-100 transition-opacity">
                             {t.Capabilities.digital_platforms.description}
                           </p>
                         </div>
@@ -204,15 +190,15 @@ export default async function Home({
                     </div>
 
                     {/* 05: Bespoke Solutions */}
-                    <div className="flex-1 bg-background p-8 group hover:flex-[2.5] hover:bg-primary transition-all duration-700 ease-in-out relative overflow-hidden border border-white/5 lg:border-none">
+                    <div className="bg-background lg:flex-1 p-8 group hover:lg:flex-[2.5] hover:bg-primary transition-all duration-700 ease-in-out relative overflow-hidden border border-white/5 lg:border-none">
                       <div className="relative z-10 flex flex-col h-full justify-between">
                         <div>
                           <div className="flex justify-between items-start mb-6">
                             <div className="text-4xl font-black text-white/5 group-hover:text-black/10 transition-colors leading-none font-headline">05</div>
-                            <div className="px-2 py-0.5 border border-primary/20 bg-primary/5 text-[7px] text-primary font-black tracking-widest uppercase group-hover:border-black/20 group-hover:text-black/60">DISPONÍVEL</div>
+                            <div className="px-2 py-0.5 border border-primary/20 bg-primary/5 text-[9px] text-primary font-black tracking-widest uppercase group-hover:border-black/20 group-hover:text-black/60">DISPONÍVEL</div>
                           </div>
-                          <h3 className="text-xl md:text-2xl font-bold text-white group-hover:text-black uppercase mb-4 transition-colors">{t.Capabilities.bespoke_solutions.title}</h3>
-                          <p className="text-neutral-500 group-hover:text-black font-body uppercase leading-relaxed text-[11px] tracking-tight max-w-[280px] opacity-60 group-hover:opacity-100 transition-opacity">
+                          <h3 className="text-xl md:text-2xl font-bold text-white group-hover:text-black uppercase mb-4 transition-colors leading-tight">{t.Capabilities.bespoke_solutions.title}</h3>
+                          <p className="text-neutral-500 group-hover:text-black font-body uppercase leading-relaxed text-[12px] tracking-tight max-w-full opacity-60 group-hover:opacity-100 transition-opacity">
                             {t.Capabilities.bespoke_solutions.description}
                           </p>
                         </div>
@@ -226,15 +212,15 @@ export default async function Home({
                     </div>
 
                     {/* 06: Automation & IA */}
-                    <div className="flex-1 bg-background p-8 group hover:flex-[2.5] hover:bg-primary transition-all duration-700 ease-in-out relative overflow-hidden border border-white/5 lg:border-none">
+                    <div className="bg-background lg:flex-1 p-8 group hover:lg:flex-[2.5] hover:bg-primary transition-all duration-700 ease-in-out relative overflow-hidden border border-white/5 lg:border-none">
                       <div className="relative z-10 flex flex-col h-full justify-between">
                         <div>
                           <div className="flex justify-between items-start mb-6">
                             <div className="text-4xl font-black text-white/5 group-hover:text-black/10 transition-colors leading-none font-headline">06</div>
-                            <div className="px-2 py-0.5 border border-yellow-500/20 bg-yellow-500/5 text-[7px] text-yellow-500 font-black tracking-widest uppercase group-hover:border-black/20 group-hover:text-black/60">EM DESENVOLVIMENTO</div>
+                            <div className="px-2 py-0.5 border border-yellow-500/20 bg-yellow-500/5 text-[9px] text-yellow-500 font-black tracking-widest uppercase group-hover:border-black/20 group-hover:text-black/60">EM DESENVOLVIMENTO</div>
                           </div>
-                          <h3 className="text-xl md:text-2xl font-bold text-white group-hover:text-black uppercase mb-4 transition-colors">{t.Capabilities.automation_ai.title}</h3>
-                          <p className="text-neutral-500 group-hover:text-black font-body uppercase leading-relaxed text-[11px] tracking-tight max-w-[280px] opacity-60 group-hover:opacity-100 transition-opacity">
+                          <h3 className="text-xl md:text-2xl font-bold text-white group-hover:text-black uppercase mb-4 transition-colors leading-tight">{t.Capabilities.automation_ai.title}</h3>
+                          <p className="text-neutral-500 group-hover:text-black font-body uppercase leading-relaxed text-[12px] tracking-tight max-w-full opacity-60 group-hover:opacity-100 transition-opacity">
                             {t.Capabilities.automation_ai.description}
                           </p>
                         </div>
@@ -272,22 +258,22 @@ export default async function Home({
           {/* Massive background watermark */}
           <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden">
             <span className="font-headline text-[22vw] font-black tracking-tighter leading-none uppercase text-white/[0.03] whitespace-nowrap">
-              GROWTH
+              PARCERIA
             </span>
           </div>
 
           <div className="relative z-10 max-w-7xl mx-auto px-8 text-center">
             {/* Badge */}
-            <div className="inline-flex items-center gap-3 px-5 py-2 border border-white/10 bg-white/5 mb-16">
-              <div className="w-1.5 h-1.5 bg-primary rounded-full" />
-              <span className="text-[9px] font-black tracking-[0.4em] text-neutral-400 uppercase leading-none">
+            <div className="inline-flex items-center gap-3 px-4 py-2 bg-white/5 border border-white/10 mb-16">
+              <div className="w-2 h-2 bg-primary rounded-full animate-pulse" />
+              <span className="text-[10px] font-black tracking-[0.3em] text-neutral-400 uppercase leading-none">
                 {t.CTA.badge}
               </span>
             </div>
 
             {/* Headline */}
             <h2
-              className="font-headline text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter uppercase leading-[0.9] text-white mb-20"
+              className="font-headline text-4xl md:text-7xl lg:text-8xl font-black tracking-tighter uppercase leading-[0.9] text-white mb-16 md:mb-20"
               dangerouslySetInnerHTML={{ __html: t.CTA.headline }}
             />
 

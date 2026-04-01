@@ -39,9 +39,9 @@ export default function StatsSection({ t }: StatsSectionProps) {
                         viewport={{ once: true }}
                         className="max-w-3xl"
                     >
-                        <div className="inline-flex items-center gap-3 px-4 py-2 border border-white/10 bg-white/5 mb-8 md:mb-12">
-                            <div className="w-2 h-2 bg-[#aed500] animate-pulse" />
-                            <span className="font-label text-xs uppercase tracking-[0.2em] text-on-surface-variant leading-none">{t.label}</span>
+                        <div className="inline-flex items-center gap-3 px-4 py-2 bg-white/5 border border-white/10 mb-8 md:mb-12">
+                            <div className="w-2 h-2 bg-primary animate-pulse" />
+                            <span className="text-[10px] font-black tracking-[0.3em] text-neutral-400 uppercase leading-none">{t.label}</span>
                         </div>
                         <h2 className="font-headline text-4xl md:text-6xl font-bold tracking-tight uppercase"
                             dangerouslySetInnerHTML={{ __html: t.headline }} />

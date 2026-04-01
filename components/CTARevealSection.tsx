@@ -101,9 +101,9 @@ export default function CTARevealSection({ t }: { t: any }) {
                 {/* Badge */}
                 <div className="mb-16">
                     <WipeLine progress={badgeP}>
-                        <div className="inline-flex items-center gap-3 px-6 py-2 border border-white/10 bg-white/5">
-                            <div className="w-1.5 h-1.5 bg-primary animate-pulse" />
-                            <span className="text-[10px] font-black tracking-[0.4em] text-neutral-400 uppercase leading-none">
+                        <div className="inline-flex items-center gap-3 px-4 py-2 bg-white/5 border border-white/10">
+                            <div className="w-2 h-2 bg-primary rounded-full animate-pulse" />
+                            <span className="text-[10px] font-black tracking-[0.3em] text-neutral-400 uppercase leading-none">
                                 {t.badge}
                             </span>
                         </div>
@@ -111,14 +111,14 @@ export default function CTARevealSection({ t }: { t: any }) {
                 </div>
 
                 {/* Headline Wrap */}
-                <h2 className="font-headline text-5xl md:text-[80px] font-black tracking-tighter uppercase mb-20 md:mb-28 flex flex-col items-center gap-2 md:gap-3 w-full px-4 text-center">
+                <h2 className="font-headline text-4xl md:text-[80px] font-black tracking-tighter uppercase mb-20 md:mb-28 flex flex-col items-center gap-2 md:gap-3 w-full px-4 text-center">
                     {lines.map((line: string, i: number) => (
                         <WipeLine
                             key={i}
                             progress={lineProgresses[i]}
                             isAccent={i === accentLine}
                         >
-                            <span className="text-5xl md:text-7xl lg:text-[80px] block leading-[0.95]">{line}</span>
+                            <span className="text-4xl md:text-7xl lg:text-[80px] block leading-[0.95]">{line}</span>
                         </WipeLine>
                     ))}
                 </h2>
