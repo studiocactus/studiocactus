@@ -12,6 +12,20 @@ interface HoverState {
 
 export default function CustomCursor() {
     const [hoverState, setHoverState] = useState<HoverState | null>(null);
+    const [isMobile, setIsMobile] = useState(true); // Default to true to prevent glitch on hydration
+
+    useEffect(() => {
+        // Detect if it's a touch device or small screen
+        const checkMobile = () => {
+            const isTouch = window.matchMedia("(pointer: coarse)").matches;
+            const isSmallScreen = window.innerWidth < 1024;
+            setIsMobile(isTouch || isSmallScreen);
+        };
+
+        checkMobile();
+        window.addEventListener("resize", checkMobile);
+        return () => window.removeEventListener("resize", checkMobile);
+    }, []);
 
     const mouseX = useMotionValue(-100);
     const mouseY = useMotionValue(-100);
@@ -68,9 +82,11 @@ export default function CustomCursor() {
         };
     }, [hoverState, mouseX, mouseY, cursorWidth, cursorHeight]);
 
+    if (isMobile) return null;
+
     return (
         <motion.div
-            className="fixed top-0 left-0 pointer-events-none z-[9999] border-2 border-primary bg-primary/10"
+            className="hidden lg:block fixed top-0 left-0 pointer-events-none z-[9999] border-2 border-primary bg-primary/10"
             style={{
                 translateX: cursorX,
                 translateY: cursorY,

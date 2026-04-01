@@ -206,21 +206,14 @@ function ProjectItem({ project, t }: { project: Project, t: any }) {
             >
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 pb-20 pt-4 px-4 md:px-12">
                     {/* Visual Portal */}
-                    <div className="lg:col-span-7 relative aspect-[16/9] overflow-hidden transition-all duration-1000 bg-neutral-900 border border-white/5">
-                        <motion.div
+                    <div className="lg:col-span-7 relative aspect-[16/9] overflow-hidden grayscale hover:grayscale-0 transition-all duration-1000 bg-neutral-900 border border-white/5">
+                        <motion.img
                             animate={{ scale: isHovered ? 1 : 1.15 }}
                             transition={{ duration: 1.5, ease: "easeOut" }}
-                            className="relative w-full h-full"
-                        >
-                            <Image
-                                src={project.image}
-                                alt={project.title}
-                                fill
-                                className="object-cover"
-                                priority={project.index === "01"}
-                                quality={90}
-                            />
-                        </motion.div>
+                            src={project.image}
+                            alt={project.title}
+                            className="w-full h-full object-cover"
+                        />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent pointer-events-none" />
 
                         {/* Floating Stats on Image - Adjusted for mobile breath */}
