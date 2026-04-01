@@ -136,14 +136,14 @@ export default function Navbar({ t, lang }: NavbarProps) {
                         initial="closed"
                         animate="open"
                         exit="closed"
-                        className="fixed inset-0 bg-background z-[105] flex flex-col px-8 pt-40 pb-12 lg:hidden"
+                        className="fixed inset-0 bg-background z-[105] flex flex-col px-8 pt-24 pb-12 lg:hidden overflow-y-auto"
                     >
                         {/* Background Watermark */}
                         <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-[0.03] overflow-hidden select-none">
                             <span className="text-[30vw] font-black font-headline rotate-90">MENU</span>
                         </div>
 
-                        <nav className="flex flex-col gap-12 relative z-10">
+                        <nav className="flex flex-col gap-6 relative z-10">
                             {navLinks.map((link, i) => (
                                 <motion.a
                                     key={link.name}
@@ -151,14 +151,14 @@ export default function Navbar({ t, lang }: NavbarProps) {
                                     custom={i}
                                     variants={linkVariants}
                                     onClick={() => setIsOpen(false)}
-                                    className="font-headline text-5xl font-black uppercase text-white hover:text-primary transition-colors tracking-tighter"
+                                    className="font-headline text-4xl font-black uppercase text-white hover:text-primary transition-colors tracking-tighter"
                                 >
                                     {link.name}
                                 </motion.a>
                             ))}
                         </nav>
 
-                        <div className="mt-auto space-y-4 relative z-10">
+                        <div className="mt-12 space-y-4 relative z-10 pb-8">
                             {/* Mobile CTA */}
                             <motion.div
                                 variants={linkVariants}
