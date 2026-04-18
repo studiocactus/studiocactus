@@ -18,7 +18,7 @@ export default function ClientMarquee({ title }: ClientMarqueeProps) {
 
                 {/* Labels Hub - Atomic Centering with Grid Alignment */}
                 <div className="flex-shrink-0 flex items-center gap-8 relative z-10 bg-background pr-10">
-                    <p className="font-label text-[9px] tracking-[0.4em] text-neutral-600 uppercase font-bold whitespace-nowrap leading-none">
+                    <p className="font-label text-[9px] tracking-[0.4em] text-neutral-500 uppercase font-bold whitespace-nowrap leading-none">
                         {title}
                     </p>
                     {/* Tactical Vertical Line */}
@@ -41,7 +41,7 @@ export default function ClientMarquee({ title }: ClientMarqueeProps) {
                         {[...CLIENTS, ...CLIENTS].map((client, i) => (
                             <span
                                 key={i}
-                                className="font-headline text-lg md:text-xl font-black text-neutral-800 tracking-tighter uppercase cursor-default hover:text-primary transition-colors duration-300 flex items-center"
+                                className="font-headline text-xl md:text-2xl font-black text-neutral-500 tracking-tighter uppercase cursor-default hover:text-primary transition-colors duration-300 flex items-center"
                             >
                                 {client}
                             </span>
