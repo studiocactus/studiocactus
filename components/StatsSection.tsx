@@ -2,7 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import InteractiveWaves from "./InteractiveWaves";
+import { Waves } from "./ui/wave-background";
 
 interface StatItem {
     val: string;
@@ -29,7 +29,7 @@ export default function StatsSection({ t }: StatsSectionProps) {
     return (
         <section className="relative py-32 md:py-48 bg-[#0a0a0a] border-t border-white/5 overflow-hidden">
             {/* Interactive Topographic Background - Stays still when mouse is still */}
-            <InteractiveWaves />
+            <Waves />
 
             <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-8">
                 <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-20 md:mb-40 gap-12">

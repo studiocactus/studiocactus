@@ -7,7 +7,7 @@ import FlipWord from "@/components/FlipWord";
 import ClientMarquee from "@/components/ClientMarquee";
 import ProjectsSection from "@/components/ProjectsSection";
 import SuccessStories from "@/components/SuccessStories";
-import InteractiveWaves from "@/components/InteractiveWaves";
+import { Waves } from "@/components/ui/wave-background";
 import DictionarySwitcher from "@/components/DictionarySwitcher";
 import ScrollToTop from "@/components/ScrollToTop";
 import ContactForm from "@/components/ContactForm";
@@ -30,7 +30,7 @@ export default async function Home({
       <main>
         {/* HERO - Ultra Modern Digital Architecture */}
         <section id="home" className="relative min-h-screen pt-32 flex flex-col justify-center overflow-hidden">
-          <InteractiveWaves />
+          <Waves />
           <div className="max-w-7xl mx-auto px-8 relative z-10 w-full">
             <div className="max-w-4xl">
               <div className="inline-flex items-center gap-3 px-4 py-2 bg-white/5 border border-white/10 mb-8 md:mb-12">
