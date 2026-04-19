@@ -33,20 +33,18 @@ const colorMap: Record<number, string> = {
     3: "bg-blue-600",
 };
 
-function AnimatedNumber({ value }: { value: string }) {
+function AnimatedNumber({ value, delay = 0 }: { value: string; delay?: number }) {
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true, margin: "-100px" });
-    const [hasAnimated, setHasAnimated] = useState(false);
+    const [hasStarted, setHasStarted] = useState(false);
 
-    // Parse number and suffix (e.g., "80+" -> 80 and "+")
     const numericPart = parseInt(value.replace(/[^0-9]/g, "")) || 0;
     const suffix = value.replace(/[0-9]/g, "");
 
     const count = useMotionValue(0);
 
-    // Premium spring physics
     const springValue = useSpring(count, {
-        stiffness: 30, // Slightly more relaxed for cinematic count
+        stiffness: 30,
         damping: 15,
         restDelta: 0.01
     });
@@ -54,46 +52,28 @@ function AnimatedNumber({ value }: { value: string }) {
     const display = useTransform(springValue, (latest) => Math.round(latest));
     const [showSuffix, setShowSuffix] = useState(false);
 
-    // Logic to show suffix ONLY at the very end of count
     useEffect(() => {
         const unsubscribe = springValue.on("change", (latest) => {
-            // Show suffix when we reach ~99% of the target
             if (latest >= numericPart - 0.1 && latest > 0) {
                 setShowSuffix(true);
-            } else {
-                setShowSuffix(false);
             }
         });
         return () => unsubscribe();
     }, [springValue, numericPart]);
 
-    // Initial Trigger
     useEffect(() => {
-        if (isInView && !hasAnimated) {
-            count.set(numericPart);
-            setHasAnimated(true);
+        if (isInView && !hasStarted) {
+            const timer = setTimeout(() => {
+                count.set(numericPart);
+                setHasStarted(true);
+            }, delay * 1000);
+            return () => clearTimeout(timer);
         }
-    }, [isInView, count, numericPart, hasAnimated]);
-
-    // Hover Interaction: Full Reset & Re-animate
-    const handleInteraction = () => {
-        count.set(0);
-        setShowSuffix(false);
-
-        // Small delay to ensure reset is visible before charging up again
-        setTimeout(() => {
-            count.set(numericPart);
-        }, 150);
-    };
+    }, [isInView, count, numericPart, delay, hasStarted]);
 
     return (
-        <div
-            ref={ref}
-            className="flex items-baseline overflow-hidden cursor-pointer select-none"
-            onMouseEnter={handleInteraction}
-            onClick={handleInteraction}
-        >
-            <motion.span className="font-headline text-5xl md:text-[6.5rem] font-black text-white tracking-tighter leading-none">
+        <div ref={ref} className="flex items-baseline overflow-hidden select-none cursor-default group/num">
+            <motion.span className="font-headline text-5xl md:text-[6.5rem] font-black text-white tracking-tighter leading-none transition-colors duration-300 group-hover/num:text-primary">
                 {display}
             </motion.span>
             <motion.span
@@ -101,7 +81,7 @@ function AnimatedNumber({ value }: { value: string }) {
                 animate={showSuffix ? { opacity: 1, x: 0 } : { opacity: 0, x: -15 }}
                 transition={{
                     duration: 0.4,
-                    ease: [0.23, 1, 0.32, 1] // Exponential out
+                    ease: [0.23, 1, 0.32, 1]
                 }}
                 className="font-headline text-3xl md:text-[4rem] font-black text-primary ml-1"
             >
@@ -117,7 +97,7 @@ export default function StatsSection({ t }: StatsSectionProps) {
     return (
         <section className="relative py-32 md:py-48 bg-black overflow-hidden selection:bg-primary selection:text-black">
             <div className="relative z-10 max-w-7xl mx-auto px-8">
-                {/* Section Header */}
+                {/* Header Section */}
                 <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-24 md:mb-32 gap-12">
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
@@ -151,7 +131,7 @@ export default function StatsSection({ t }: StatsSectionProps) {
                     </motion.div>
                 </div>
 
-                {/* Stats Grid - Cinematic Layout */}
+                {/* Sequential Stats Bar - Cinematic single row */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 md:gap-8 lg:gap-12">
                     {stats.map((item, idx) => (
                         <motion.div
@@ -161,36 +141,33 @@ export default function StatsSection({ t }: StatsSectionProps) {
                             viewport={{ once: true }}
                             transition={{
                                 duration: 1,
-                                delay: idx * 0.15,
+                                delay: idx * 0.2, // Entrance delay
                                 ease: [0.16, 1, 0.3, 1]
                             }}
                             className="relative group flex flex-col pt-12 border-t border-white/5"
                         >
-                            {/* Status Pixel Indicator */}
                             <div className="flex items-center gap-6 mb-2">
                                 <motion.div
                                     initial={{ scale: 0 }}
                                     whileInView={{ scale: 1 }}
                                     viewport={{ once: true }}
-                                    transition={{ delay: 0.5 + idx * 0.1, type: "spring" }}
+                                    transition={{ delay: 0.5 + idx * 0.2, type: "spring" }}
                                     className={`w-3 h-3 ${colorMap[idx]} flex-shrink-0 shadow-[0_0_20px_rgba(255,255,255,0.1)]`}
                                 />
-                                <AnimatedNumber value={item.val} />
+                                {/* Sequence trigger: 0s, 0.4s, 0.8s, 1.2s etc */}
+                                <AnimatedNumber value={item.val} delay={idx * 0.4} />
                             </div>
 
-                            {/* Label - Upper/Wide */}
                             <p className="font-label text-xs md:text-[13px] text-neutral-500 font-bold uppercase tracking-[0.3em] leading-relaxed pl-9 group-hover:text-neutral-300 transition-colors">
                                 {item.label}
                             </p>
 
-                            {/* Decorative Accent Hover */}
                             <div className="absolute top-0 left-0 w-1/4 h-[1px] bg-primary scale-x-0 group-hover:scale-x-100 transition-transform duration-700 origin-left" />
                         </motion.div>
                     ))}
                 </div>
             </div>
 
-            {/* Background Watermark */}
             <div className="absolute -bottom-20 -right-20 pointer-events-none select-none opacity-[0.02] text-[25vw] font-black text-white leading-none tracking-tighter">
                 DATA
             </div>
