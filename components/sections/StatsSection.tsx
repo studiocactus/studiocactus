@@ -36,6 +36,7 @@ const colorMap: Record<number, string> = {
 function AnimatedNumber({ value }: { value: string }) {
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true, margin: "-100px" });
+    const [hasAnimated, setHasAnimated] = useState(false);
 
     // Parse number and suffix (e.g., "80+" -> 80 and "+")
     const numericPart = parseInt(value.replace(/[^0-9]/g, "")) || 0;
@@ -43,35 +44,65 @@ function AnimatedNumber({ value }: { value: string }) {
 
     const count = useMotionValue(0);
 
-    // Premium spring physics for smooth easing
+    // Premium spring physics
     const springValue = useSpring(count, {
-        stiffness: 40,
-        damping: 20,
-        restDelta: 0.001
+        stiffness: 30, // Slightly more relaxed for cinematic count
+        damping: 15,
+        restDelta: 0.01
     });
 
     const display = useTransform(springValue, (latest) => Math.round(latest));
-
     const [showSuffix, setShowSuffix] = useState(false);
 
+    // Logic to show suffix ONLY at the very end of count
     useEffect(() => {
-        if (isInView) {
+        const unsubscribe = springValue.on("change", (latest) => {
+            // Show suffix when we reach ~99% of the target
+            if (latest >= numericPart - 0.1 && latest > 0) {
+                setShowSuffix(true);
+            } else {
+                setShowSuffix(false);
+            }
+        });
+        return () => unsubscribe();
+    }, [springValue, numericPart]);
+
+    // Initial Trigger
+    useEffect(() => {
+        if (isInView && !hasAnimated) {
             count.set(numericPart);
-            // Wait for count to get close to finishing before showing suffix fade-in
-            const timer = setTimeout(() => setShowSuffix(true), 1200);
-            return () => clearTimeout(timer);
+            setHasAnimated(true);
         }
-    }, [isInView, count, numericPart]);
+    }, [isInView, count, numericPart, hasAnimated]);
+
+    // Hover Interaction: Full Reset & Re-animate
+    const handleInteraction = () => {
+        count.set(0);
+        setShowSuffix(false);
+
+        // Small delay to ensure reset is visible before charging up again
+        setTimeout(() => {
+            count.set(numericPart);
+        }, 150);
+    };
 
     return (
-        <div ref={ref} className="flex items-baseline overflow-hidden">
+        <div
+            ref={ref}
+            className="flex items-baseline overflow-hidden cursor-pointer select-none"
+            onMouseEnter={handleInteraction}
+            onClick={handleInteraction}
+        >
             <motion.span className="font-headline text-5xl md:text-[6.5rem] font-black text-white tracking-tighter leading-none">
                 {display}
             </motion.span>
             <motion.span
-                initial={{ opacity: 0, x: -10 }}
-                animate={showSuffix ? { opacity: 1, x: 0 } : {}}
-                transition={{ duration: 0.5, ease: "easeOut" }}
+                initial={{ opacity: 0, x: -15 }}
+                animate={showSuffix ? { opacity: 1, x: 0 } : { opacity: 0, x: -15 }}
+                transition={{
+                    duration: 0.4,
+                    ease: [0.23, 1, 0.32, 1] // Exponential out
+                }}
                 className="font-headline text-3xl md:text-[4rem] font-black text-primary ml-1"
             >
                 {suffix}
@@ -120,7 +151,7 @@ export default function StatsSection({ t }: StatsSectionProps) {
                     </motion.div>
                 </div>
 
-                {/* Stats Grid - Single row for Cinematic Large Screens */}
+                {/* Stats Grid - Cinematic Layout */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 md:gap-8 lg:gap-12">
                     {stats.map((item, idx) => (
                         <motion.div
@@ -152,14 +183,14 @@ export default function StatsSection({ t }: StatsSectionProps) {
                                 {item.label}
                             </p>
 
-                            {/* Decorative Accent */}
+                            {/* Decorative Accent Hover */}
                             <div className="absolute top-0 left-0 w-1/4 h-[1px] bg-primary scale-x-0 group-hover:scale-x-100 transition-transform duration-700 origin-left" />
                         </motion.div>
                     ))}
                 </div>
             </div>
 
-            {/* Background Watermark - Massive but subtle */}
+            {/* Background Watermark */}
             <div className="absolute -bottom-20 -right-20 pointer-events-none select-none opacity-[0.02] text-[25vw] font-black text-white leading-none tracking-tighter">
                 DATA
             </div>
